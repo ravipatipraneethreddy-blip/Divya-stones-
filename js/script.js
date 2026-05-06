@@ -112,9 +112,9 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ======================================================================
-  // Form Submission (Formspree AJAX)
+  // Form Submission (Netlify Forms AJAX)
   // ======================================================================
-  document.querySelectorAll('form[data-formspree]').forEach(form => {
+  document.querySelectorAll('form[data-netlify="true"]').forEach(form => {
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
 
@@ -123,11 +123,14 @@ document.addEventListener('DOMContentLoaded', () => {
       btn.textContent = 'Sending...';
       btn.disabled = true;
 
+      const formData = new FormData(form);
+      formData.append('form-name', form.getAttribute('name'));
+
       try {
-        const resp = await fetch(form.action, {
+        const resp = await fetch('/', {
           method: 'POST',
-          body: new FormData(form),
-          headers: { 'Accept': 'application/json' }
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: new URLSearchParams(formData).toString()
         });
 
         if (resp.ok) {
