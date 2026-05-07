@@ -9,15 +9,51 @@
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <meta property="og:title" content="Stone Applications | Divya Stones">
   <meta property="og:description" content="Versatile Indian limestone for outdoor paving, indoor flooring, and commercial spaces worldwide.">
-  <meta property="og:image" content="assets/images/outdoor_paving.png">
   <meta property="og:url" content="https://www.divyastones.in/applications.html">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    /* Luxury Application Page Specific Styles */
+    .portfolio-section { padding: 100px 0; border-bottom: 1px solid rgba(0,0,0,0.05); }
+    .portfolio-title { font-size: 40px; margin-bottom: 16px; font-weight: 800; letter-spacing: -0.02em; text-transform: uppercase; }
+    .portfolio-desc { font-size: 18px; color: var(--color-grey-dark); max-width: 700px; margin-bottom: 48px; line-height: 1.6; }
+    
+    .hero-img-container { width: 100%; height: 60vh; overflow: hidden; border-radius: 8px; margin-bottom: 24px; position: relative; }
+    .hero-img-container img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s ease; filter: contrast(1.1); }
+    .hero-img-container:hover img { transform: scale(1.03); }
+
+    .masonry-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); grid-auto-rows: 300px; gap: 16px; margin-top: 16px; }
+    .masonry-item { overflow: hidden; border-radius: 6px; cursor: zoom-in; position: relative; background: #f0f0f0; }
+    .masonry-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+    .masonry-item:hover img { transform: scale(1.08); }
+    
+    @media (min-width: 768px) {
+      .masonry-item.tall { grid-row: span 2; }
+      .masonry-item.wide { grid-column: span 2; }
+    }
+
+    .editorial-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; margin-top: 48px; }
+    .editorial-img { border-radius: 6px; overflow: hidden; cursor: zoom-in; position: relative; height: 100%; min-height: 400px; }
+    .editorial-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; position: absolute; top:0; left:0; }
+    .editorial-img:hover img { transform: scale(1.05); }
+    @media (max-width: 768px) { .editorial-grid { grid-template-columns: 1fr; } .editorial-img { height: 400px !important; } }
+
+    /* Lightbox */
+    .lightbox { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15,15,15,0.98); z-index: 9999; display: none; justify-content: center; align-items: center; opacity: 0; transition: opacity 0.3s ease; }
+    .lightbox.active { display: flex; opacity: 1; }
+    .lightbox img { max-width: 90%; max-height: 90vh; object-fit: contain; box-shadow: 0 20px 50px rgba(0,0,0,0.5); border-radius: 4px; }
+    .lightbox-close { position: absolute; top: 30px; right: 40px; color: white; font-size: 50px; cursor: pointer; font-weight: 300; transition: color 0.3s ease; }
+    .lightbox-close:hover { color: var(--color-accent); }
+    
+    /* Overlay for text on images */
+    .img-tag { position: absolute; bottom: 16px; left: 16px; background: rgba(0,0,0,0.6); color: white; padding: 6px 12px; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; border-radius: 4px; pointer-events: none; backdrop-filter: blur(4px); }
+  </style>
 </head>
 <body>
 
@@ -28,7 +64,7 @@
       <nav class="nav-links">
         <a href="index.html">Home</a>
         <a href="products.html">Products</a>
-        <a href="applications.html">Applications</a>
+        <a href="applications.html" class="active">Applications</a>
         <a href="about.html">About Us</a>
         <a href="catalog.html">Catalog</a>
         <a href="contact.html">Contact</a>
@@ -38,74 +74,116 @@
 
   <section class="section section-dark" style="padding-top: 160px; padding-bottom: 80px;">
     <div class="container text-center">
-      <h1 style="font-size: 48px; margin-bottom: 16px;">Stone Applications</h1>
-      <p style="font-size: 18px; color: #ddd; max-width: 700px; margin: 0 auto;">
-        Versatile, durable, and aesthetically stunning natural limestone designed for world-class architectural projects.
+      <h1 style="font-size: 56px; margin-bottom: 16px; letter-spacing: -0.03em;">The Portfolio</h1>
+      <p style="font-size: 18px; color: #aaa; max-width: 700px; margin: 0 auto; font-weight: 300;">
+        Versatile, extremely durable, and aesthetically stunning natural Indian limestone engineered for world-class architectural projects.
       </p>
     </div>
   </section>
 
-  <section class="section">
+  <!-- 1. OUTDOOR PAVING & LANDSCAPING -->
+  <section class="portfolio-section">
     <div class="container">
-
-      <div style="display: flex; flex-wrap: wrap; gap: 48px; align-items: center; margin-bottom: 80px;" class="fade-in">
-        <div style="flex: 1; min-width: 300px;">
-          <img src="assets/images/outdoor_paving.png" alt="Limestone outdoor paving in a UK garden setting" loading="lazy" style="width: 100%; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
-        </div>
-        <div style="flex: 1; min-width: 300px;">
-          <h2 style="font-size: 32px; margin-bottom: 16px;">Outdoor Paving & Landscaping</h2>
-          <p style="color: var(--color-grey-dark); margin-bottom: 16px;">
-            Our naturally split, hand-cut, and tumbled limestones are extensively utilized in premium UK and European gardens. The slip-resistant surfaces provide excellent safety, while the durability ensures longevity even in freezing climates.
-          </p>
-          <ul style="list-style-type: disc; margin-left: 20px; color: var(--color-dark); font-weight: 500;">
-            <li>Patio and Garden Paving</li>
-            <li>Driveways and Walkways</li>
-            <li>Pool Surrounds</li>
-          </ul>
-        </div>
+      <div class="fade-in">
+        <h2 class="portfolio-title">Outdoor Paving & Landscaping</h2>
+        <p class="portfolio-desc">
+          Extensively utilized in premium UK and European gardens. Naturally split, hand-cut, and tumbled finishes provide exceptional slip-resistance, while extreme durability ensures longevity in freezing climates.
+        </p>
       </div>
 
-      <div style="display: flex; flex-wrap: wrap-reverse; gap: 48px; align-items: center; margin-bottom: 80px;" class="fade-in">
-        <div style="flex: 1; min-width: 300px;">
-          <h2 style="font-size: 32px; margin-bottom: 16px;">Indoor Flooring</h2>
-          <p style="color: var(--color-grey-dark); margin-bottom: 16px;">
-            With honed and polished finishes, our limestones bring warmth and luxury to residential interiors. The consistent 22mm calibration allows for seamless indoor-to-outdoor transitions, a popular trend in modern architecture.
-          </p>
-          <ul style="list-style-type: disc; margin-left: 20px; color: var(--color-dark); font-weight: 500;">
-            <li>Kitchen and Bathroom Flooring</li>
-            <li>Living Spaces</li>
-            <li>Feature Walls</li>
-          </ul>
-        </div>
-        <div style="flex: 1; min-width: 300px;">
-          <img src="assets/images/indoor-flooring.jpg" alt="Polished limestone indoor flooring in a modern living space" loading="lazy" style="width: 100%; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); background-color: #ddd;">
-        </div>
+      <div class="hero-img-container fade-in lightbox-trigger">
+        <img src="assets/images/outdoor/outdoor-hero.jpg" alt="Luxury European pool deck using Tandur Yellow limestone" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80'">
+        <div class="img-tag">Tandur Yellow — Pool Deck</div>
       </div>
 
-      <div style="display: flex; flex-wrap: wrap; gap: 48px; align-items: center;" class="fade-in">
-        <div style="flex: 1; min-width: 300px;">
-          <img src="assets/images/commercial.jpg" alt="Limestone flooring in a luxury hotel lobby" loading="lazy" style="width: 100%; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); background-color: #ddd;">
+      <div class="masonry-grid fade-in">
+        <div class="masonry-item tall lightbox-trigger">
+          <img src="assets/images/outdoor/outdoor-1.jpg" alt="Stone pathway" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1584622650111-993a426fbf0a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'">
+          <div class="img-tag">Garden Pathway</div>
         </div>
-        <div style="flex: 1; min-width: 300px;">
-          <h2 style="font-size: 32px; margin-bottom: 16px;">Commercial Spaces</h2>
-          <p style="color: var(--color-grey-dark); margin-bottom: 16px;">
-            Engineered to withstand heavy foot traffic, our heavy-duty limestone slabs are the choice material for luxury hotels, malls, and corporate offices, particularly in the UAE and USA markets.
-          </p>
-          <ul style="list-style-type: disc; margin-left: 20px; color: var(--color-dark); font-weight: 500;">
-            <li>Hotel Lobbies</li>
-            <li>Public Plazas</li>
-            <li>Commercial Facades</li>
-          </ul>
+        <div class="masonry-item lightbox-trigger">
+          <img src="assets/images/outdoor/outdoor-2.jpg" alt="Cobblestone driveway" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1517646287270-a5a9ca602e5c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'">
+          <div class="img-tag">Cobble Driveway</div>
+        </div>
+        <div class="masonry-item wide lightbox-trigger">
+          <img src="assets/images/outdoor/outdoor-3.jpg" alt="Limestone courtyard" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1600607686527-6fb886090705?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'">
+          <div class="img-tag">Kadapa Black Courtyard</div>
+        </div>
+        <div class="masonry-item lightbox-trigger">
+          <img src="assets/images/outdoor/outdoor-4.jpg" alt="Stepping stones" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1588880331179-bc9b93a8cb65?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'">
+          <div class="img-tag">Stepping Stones</div>
         </div>
       </div>
-
     </div>
   </section>
 
-  <section class="section section-grey text-center">
+  <!-- 2. INDOOR FLOORING -->
+  <section class="portfolio-section" style="background-color: #fafafa;">
+    <div class="container">
+      <div class="fade-in">
+        <h2 class="portfolio-title">Indoor Flooring</h2>
+        <p class="portfolio-desc">
+          With honed and polished finishes, our limestones bring warmth, texture, and industrial-luxury to residential interiors. Consistent calibration allows for seamless indoor-to-outdoor transitions.
+        </p>
+      </div>
+
+      <div class="editorial-grid fade-in">
+        <div>
+          <div class="editorial-img lightbox-trigger" style="height: 500px; margin-bottom: 24px;">
+            <img src="assets/images/indoor/indoor-1.jpg" alt="Luxury interior flooring" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1600566753086-00f18efc2291?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'">
+            <div class="img-tag">Kurnool Grey — Honed Living Space</div>
+          </div>
+          <div class="editorial-img lightbox-trigger" style="height: 300px;">
+            <img src="assets/images/indoor/indoor-2.jpg" alt="Close up stone texture" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1505691938895-1758d7feb511?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'">
+            <div class="img-tag">Interior Wall Cladding</div>
+          </div>
+        </div>
+        <div>
+          <div class="editorial-img lightbox-trigger" style="height: 824px;">
+            <img src="assets/images/indoor/indoor-hero.jpg" alt="Modern kitchen with stone floors" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'">
+            <div class="img-tag">Tandur Yellow — Kitchen Flooring</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. COMMERCIAL SPACES -->
+  <section class="portfolio-section">
+    <div class="container">
+      <div class="fade-in">
+        <h2 class="portfolio-title">Commercial & Architectural</h2>
+        <p class="portfolio-desc">
+          Engineered to withstand extreme environments, our ultra-dense limestone slabs are the choice material for luxury hotels, public plazas, and corporate facades, particularly in the UAE and USA markets.
+        </p>
+      </div>
+
+      <div class="hero-img-container fade-in lightbox-trigger" style="height: 70vh;">
+        <img src="assets/images/commercial/commercial-hero.jpg" alt="Large commercial exterior paving" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80'">
+        <div class="img-tag">Corporate Headquarters — Exterior Paving</div>
+      </div>
+
+      <div class="masonry-grid fade-in">
+        <div class="masonry-item wide lightbox-trigger">
+          <img src="assets/images/commercial/commercial-1.jpg" alt="Hotel lobby flooring" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1582719508461-905c673771fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'">
+          <div class="img-tag">Luxury Hotel Lobby</div>
+        </div>
+        <div class="masonry-item lightbox-trigger">
+          <img src="assets/images/commercial/commercial-2.jpg" alt="Commercial wall cladding" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1628744448840-55bdb2497bd4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'">
+          <div class="img-tag">Exterior Wall Cladding</div>
+        </div>
+        <div class="masonry-item lightbox-trigger">
+          <img src="assets/images/commercial/commercial-3.jpg" alt="Public walkway paving" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1513694203232-719a280e022f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'">
+          <div class="img-tag">Public Walkway Plaza</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-dark text-center">
     <div class="container fade-in">
-      <h2 style="font-size: 32px; margin-bottom: 24px;">Need customized solutions for your project?</h2>
-      <a href="contact.html" class="btn btn-primary">Contact Our Export Team</a>
+      <h2 style="font-size: 40px; margin-bottom: 24px;">Source Direct for Your Next Project.</h2>
+      <a href="contact.html" class="btn btn-primary" style="font-size: 18px; padding: 16px 40px;">Contact Our Export Team</a>
     </div>
   </section>
 
@@ -140,7 +218,46 @@
   <a href="https://wa.me/917981879397?text=Hello,%20I%E2%80%99m%20interested%20in%20bulk%20limestone%20supply%20(container%20pricing).%20Please%20share%20details." target="_blank" class="whatsapp-float">
     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" viewBox="0 0 16 16"><path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c-.003 1.396.366 2.76 1.056 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/></svg>
   </a>
-  <button class="back-to-top" aria-label="Back to top">↑</button>
+
+  <!-- Lightbox Modal -->
+  <div class="lightbox" id="imageLightbox">
+    <span class="lightbox-close">&times;</span>
+    <img src="" alt="Full size view" id="lightboxImg">
+  </div>
+
   <script src="js/script.js"></script>
+  <script>
+    // Lightbox Logic (Vanilla JS)
+    document.addEventListener('DOMContentLoaded', () => {
+      const lightbox = document.getElementById('imageLightbox');
+      const lightboxImg = document.getElementById('lightboxImg');
+      const triggers = document.querySelectorAll('.lightbox-trigger');
+      const closeBtn = document.querySelector('.lightbox-close');
+
+      triggers.forEach(trigger => {
+        trigger.addEventListener('click', () => {
+          const img = trigger.querySelector('img');
+          // Use currentSrc in case onerror was triggered and loaded Unsplash fallback
+          lightboxImg.src = img.currentSrc || img.src; 
+          lightbox.classList.add('active');
+          document.body.style.overflow = 'hidden'; // prevent background scrolling
+        });
+      });
+
+      const closeLightbox = () => {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = 'auto';
+        setTimeout(() => lightboxImg.src = '', 300); // clear after fade out
+      };
+
+      closeBtn.addEventListener('click', closeLightbox);
+      lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) closeLightbox();
+      });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && lightbox.classList.contains('active')) closeLightbox();
+      });
+    });
+  </script>
 </body>
 </html>
