@@ -115,8 +115,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // Form Submission (AJAX - Works with Netlify & Formspree)
   // ======================================================================
   document.querySelectorAll('form').forEach(form => {
-    // Target forms that have data-netlify="true" or a valid action endpoint
-    if (!form.hasAttribute('data-netlify') && !form.getAttribute('action')) return;
+    // Target contact and catalog forms specifically since Netlify strips the data-netlify attribute
+    const formName = form.getAttribute('name');
+    if (formName !== 'contact' && formName !== 'catalog') return;
     
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
@@ -125,12 +126,12 @@ document.addEventListener('DOMContentLoaded', () => {
       if (btn.disabled) return; // Prevent duplicate submissions
       
       const originalText = btn.textContent;
-      btn.textContent = 'Sending Inquiry...';
+      btn.textContent = 'Sending...';
       btn.disabled = true;
 
       const formData = new FormData(form);
-      if (form.hasAttribute('name')) {
-        formData.append('form-name', form.getAttribute('name'));
+      if (formName) {
+        formData.append('form-name', formName);
       }
 
       const actionUrl = form.getAttribute('action') || '/';
@@ -138,8 +139,8 @@ document.addEventListener('DOMContentLoaded', () => {
       try {
         const resp = await fetch(actionUrl, {
           method: 'POST',
-          headers: { 'Accept': 'application/json' },
-          body: formData
+          headers: { 'Accept': 'application/x-www-form-urlencoded' },
+          body: new URLSearchParams(formData).toString()
         });
 
         if (resp.ok) {
@@ -163,8 +164,8 @@ document.addEventListener('DOMContentLoaded', () => {
             successDiv.style.transition = 'opacity 0.5s ease';
             
             successDiv.innerHTML = `
-              <h3 style="color: var(--color-dark); margin-bottom: 16px; font-size: 20px;">✓ Message sent successfully</h3>
-              <p style="color: var(--color-grey-dark); line-height: 1.6; font-size: 16px;">Thank you for your inquiry. Our export team will contact you within 12 hours.</p>
+              <h3 style="color: var(--color-dark); margin-bottom: 16px; font-size: 20px;">✓ Request received successfully</h3>
+              <p style="color: var(--color-grey-dark); line-height: 1.6; font-size: 16px;">Thank you! Our export team will send the details to your email within 12 hours.</p>
             `;
             
             form.parentNode.insertBefore(successDiv, form.nextSibling);
