@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Divya Stones | Premium Export Collection</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --c-black: #1A1A1A;
+      --c-white: #FFFFFF;
+      --c-ash: #F5F5F5;
+      --c-sand: #D9C8B4;
+      --c-grey: #888888;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--c-white);
+      color: var(--c-black);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      text-transform: uppercase;
+    }
+
+    .tracking-widest {
+      letter-spacing: 0.2em;
+    }
+
+    /* Page Layout */
+    .catalog-page {
+      width: 100vw;
+      min-height: 100vh;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 10vw;
+    }
+
+    .theme-dark {
+      background-color: var(--c-black);
+      color: var(--c-white);
+    }
+
+    .theme-ash {
+      background-color: var(--c-ash);
+    }
+
+    .bg-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 1;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to top, rgba(26,26,26,0.9) 0%, rgba(26,26,26,0.3) 50%, rgba(26,26,26,0.1) 100%);
+      z-index: 2;
+    }
+
+    .content-z {
+      position: relative;
+      z-index: 3;
+    }
+
+    /* Grid Systems */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8vw;
+      align-items: center;
+    }
+
+    .grid-2-asym {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 6vw;
+      align-items: center;
+    }
+
+    /* Typography Utilities */
+    .text-huge {
+      font-size: clamp(3rem, 8vw, 8rem);
+    }
+
+    .text-large {
+      font-size: clamp(2rem, 4vw, 4rem);
+    }
+
+    .text-body {
+      font-size: clamp(1rem, 1.2vw, 1.5rem);
+      font-weight: 300;
+      color: var(--c-grey);
+    }
+
+    .text-accent {
+      color: var(--c-sand);
+      font-weight: 500;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .spec-list {
+      list-style: none;
+      margin-top: 2rem;
+      border-top: 1px solid rgba(0,0,0,0.1);
+    }
+
+    .theme-dark .spec-list {
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .spec-list li {
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .theme-dark .spec-list li {
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    /* Images */
+    .img-elegant {
+      width: 100%;
+      height: 70vh;
+      object-fit: cover;
+      filter: contrast(1.1) saturate(0.9);
+    }
+
+    .img-inset {
+      position: absolute;
+      bottom: -10%;
+      right: -10%;
+      width: 40%;
+      height: auto;
+      border: 10px solid var(--c-white);
+      box-shadow: 0 30px 60px rgba(0,0,0,0.2);
+    }
+
+    /* Print Styles to render perfect PDF */
+    @media print {
+      body {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      .catalog-page {
+        page-break-after: always;
+        height: 100vh;
+        padding: 50px;
+      }
+      .bg-image, .overlay {
+        position: absolute;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- PAGE 1: COVER -->
+  <section class="catalog-page theme-dark" style="justify-content: space-between;">
+    <img src="assets/images/kadapa-black.jpg" alt="Kadapa Black Limestone Texture" class="bg-image">
+    <div class="overlay"></div>
+    
+    <div class="content-z" style="text-align: center; margin-top: 5vh;">
+      <p class="text-accent tracking-widest">EST. 2002 | BETHAMCHERLA, INDIA</p>
+    </div>
+
+    <div class="content-z" style="text-align: center;">
+      <h1 class="text-huge">DIVYA<br>STONES</h1>
+    </div>
+
+    <div class="content-z grid-2" style="align-items: flex-end; padding-bottom: 5vh;">
+      <div>
+        <p class="text-accent tracking-widest" style="margin-bottom: 1rem;">THE GLOBAL EXPORT COLLECTION</p>
+        <p class="text-body" style="color: var(--c-white);">Premium Indian Natural Stone<br>Limestone • Slate • Paving • Cladding</p>
+      </div>
+      <div style="text-align: right;">
+        <p class="text-accent tracking-widest" style="margin-bottom: 1rem;">VOLUME I</p>
+        <p class="text-body" style="color: var(--c-white);">2026 - 2027</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAGE 2: THE ETHOS -->
+  <section class="catalog-page theme-white">
+    <div class="grid-2">
+      <div style="position: relative;">
+        <!-- High-end architectural placeholder for villa -->
+        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Luxury Villa Architecture" class="img-elegant">
+      </div>
+      <div>
+        <h2 class="text-large" style="margin-bottom: 2rem;">FROM THE EARTH’S CORE TO GLOBAL ARCHITECTURE.</h2>
+        <p class="text-body" style="margin-bottom: 2rem;">
+          At Divya Stones, we believe that the foundation of extraordinary architecture begins with extraordinary materials. 
+        </p>
+        <p class="text-body" style="margin-bottom: 3rem;">
+          Established in 2002, we have evolved from a regional quarry operator into a premier international export powerhouse. We do not just source stone; we manufacture it. Operating directly from our state-of-the-art processing facility in India, we supply the world’s most demanding architects, builders, and landscape designers with natural stone of uncompromising quality.
+        </p>
+        <p class="text-accent tracking-widest">PRECISION. CONSISTENCY. SCALE.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAGE 3: MANUFACTURING -->
+  <section class="catalog-page theme-dark">
+    <div class="grid-2">
+      <div>
+        <h2 class="text-large" style="margin-bottom: 2rem;">ENGINEERED FOR MASSIVE SCALE.</h2>
+        <p class="text-body" style="color: #bbb; margin-bottom: 3rem;">
+          When you partner with Divya Stones, you bypass the middlemen. You are sourcing directly from the manufacturer.
+        </p>
+        
+        <ul class="spec-list">
+          <li><span>Capacity</span> <span>40+ Containers Monthly</span></li>
+          <li><span>Labor Force</span> <span>75 Master Artisans</span></li>
+          <li><span>Sourcing</span> <span>Direct Factory Operations</span></li>
+          <li><span>Quality Control</span> <span>Export-Grade Verification</span></li>
+        </ul>
+      </div>
+      <div>
+        <!-- Factory/Scale abstract image -->
+        <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Architectural Scale" class="img-elegant" style="filter: grayscale(100%) contrast(1.2);">
+      </div>
+    </div>
+  </section>
+
+  <!-- PAGE 4: KADAPA BLACK -->
+  <section class="catalog-page theme-white" style="position: relative;">
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 55vh; overflow: hidden;">
+      <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" alt="Kadapa Black Pool Deck" style="width: 100%; height: 100%; object-fit: cover; filter: contrast(1.1) saturate(0.8) brightness(0.9);">
+    </div>
+    
+    <div style="margin-top: 50vh; display: grid; grid-template-columns: 1fr 1fr; gap: 8vw;">
+      <div>
+        <h2 class="text-large" style="margin-bottom: 1rem;">KADAPA BLACK</h2>
+        <p class="text-accent tracking-widest" style="margin-bottom: 2rem; color: var(--c-grey);">Deep. Dense. Timeless.</p>
+        <p class="text-body">
+          A highly dense, fine-grained natural stone famous for its rich, striking black tones. Kadapa Black brings an unparalleled level of modern sophistication to premium outdoor and architectural applications.
+        </p>
+      </div>
+      <div>
+        <ul class="spec-list">
+          <li><span style="font-weight:600;">Finishes</span> <span>Natural, Honed, Polished, Brushed, Tumbled</span></li>
+          <li><span style="font-weight:600;">Thickness</span> <span>20mm, 25mm, Custom Calibration</span></li>
+          <li><span style="font-weight:600;">Applications</span> <span>Patios, Pool Coping, Walkways</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAGE 5: TANDUR YELLOW -->
+  <section class="catalog-page theme-ash">
+    <div class="grid-2-asym">
+      <div style="position: relative;">
+        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Tandur Yellow Courtyard" class="img-elegant">
+        <!-- Texture inset -->
+        <img src="assets/images/tandur-yellow.jpg" alt="Tandur Yellow Texture" class="img-inset">
+      </div>
+      <div style="padding-left: 4vw;">
+        <h2 class="text-large" style="margin-bottom: 1rem;">TANDUR YELLOW</h2>
+        <p class="text-accent tracking-widest" style="margin-bottom: 2rem; color: var(--c-grey);">Warmth meeting extreme durability.</p>
+        <p class="text-body" style="margin-bottom: 3rem;">
+          Infuse architectural spaces with earthy, golden-yellow tones. Tandur Yellow is revered globally for its exceptional weather resistance and load-bearing strength, making it the ultimate choice for high-traffic traditional and modern landscapes.
+        </p>
+        <ul class="spec-list">
+          <li><span style="font-weight:600;">Finishes</span> <span>Natural, Brushed, Honed, Sandblasted</span></li>
+          <li><span style="font-weight:600;">Applications</span> <span>Garden Paving, Courtyards, Driveways</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAGE 6: GREY & BLUE -->
+  <section class="catalog-page theme-white">
+    <div class="grid-2">
+      <!-- Kurnool Grey -->
+      <div>
+        <img src="assets/images/kurnool-grey.jpg" alt="Kurnool Grey" style="width: 100%; height: 50vh; object-fit: cover; margin-bottom: 2rem; filter: grayscale(20%);">
+        <h3 class="text-large" style="font-size: 2.5rem; margin-bottom: 1rem;">KURNOOL GREY</h3>
+        <p class="text-accent tracking-widest" style="margin-bottom: 1rem;">Subtle, silver-grey elegance.</p>
+        <p class="text-body">The architects' choice for contemporary, minimalist designs. Kurnool Grey delivers a clean, uniform finish perfect for modern indoor flooring and commercial cladding.</p>
+      </div>
+      <!-- Tandur Blue -->
+      <div>
+        <img src="assets/images/tandur-blue.jpg" alt="Tandur Blue" style="width: 100%; height: 50vh; object-fit: cover; margin-bottom: 2rem;">
+        <h3 class="text-large" style="font-size: 2.5rem; margin-bottom: 1rem;">TANDUR BLUE</h3>
+        <p class="text-accent tracking-widest" style="margin-bottom: 1rem;">Distinctive bluish-grey tones.</p>
+        <p class="text-body">Uniting raw natural strength with unique color variations. An incredibly versatile stone built to withstand extreme climates while elevating luxury pool decks and feature walls.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAGE 7: LOGISTICS -->
+  <section class="catalog-page theme-dark">
+    <div class="grid-2">
+      <div>
+        <h2 class="text-large" style="margin-bottom: 2rem;">SECURE. COMPLIANT. ON TIME.</h2>
+        <p class="text-body" style="color: #bbb; margin-bottom: 3rem;">
+          We understand that in international bulk trade, packaging is just as critical as the product itself. 
+        </p>
+        
+        <ul class="spec-list">
+          <li><span>Crates</span> <span>ISPM-15 Fumigated Wooden Timber</span></li>
+          <li><span>Protection</span> <span>Foam & Plastic Slab Wrapping</span></li>
+          <li><span>Loading</span> <span>Maximized Weight Efficiency</span></li>
+        </ul>
+      </div>
+      <div>
+        <img src="https://images.unsplash.com/photo-1586528116311-ad8ed7c808e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Export Logistics container" class="img-elegant" style="filter: grayscale(100%) contrast(1.2);">
+      </div>
+    </div>
+  </section>
+
+  <!-- PAGE 8: CONTACT -->
+  <section class="catalog-page theme-ash" style="text-align: center; justify-content: center;">
+    <h2 class="text-huge" style="margin-bottom: 2rem;">TRUSTED BY THE WORLD.</h2>
+    <p class="text-body" style="max-width: 800px; margin: 0 auto 4rem; color: var(--c-black);">
+      From luxury villas in Dubai to massive commercial paving projects in the UK, Divya Stones is the manufacturing partner behind the world's most beautiful spaces.
+    </p>
+
+    <div style="display: flex; justify-content: center; gap: 4rem; margin-bottom: 4rem;">
+      <div>
+        <p class="text-accent tracking-widest">EMAIL</p>
+        <p class="text-body" style="color: var(--c-black); font-weight: 500;">sales@divyastones.in</p>
+      </div>
+      <div>
+        <p class="text-accent tracking-widest">WHATSAPP</p>
+        <p class="text-body" style="color: var(--c-black); font-weight: 500;">+91 79818 79397</p>
+      </div>
+      <div>
+        <p class="text-accent tracking-widest">WEBSITE</p>
+        <p class="text-body" style="color: var(--c-black); font-weight: 500;">www.divyastones.in</p>
+      </div>
+    </div>
+
+    <p class="text-accent tracking-widest" style="color: var(--c-grey);">DIVYA STONES • FACTORY DIRECT INDIAN EXPORTER</p>
+  </section>
+
+</body>
+</html>
