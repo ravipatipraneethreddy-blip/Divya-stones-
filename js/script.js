@@ -126,7 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (btn.disabled) return; // Prevent duplicate submissions
       
       const originalText = btn.textContent;
-      btn.textContent = 'Sending...';
+      btn.textContent = formName === 'catalog' ? 'Preparing Catalog...' : 'Sending...';
       btn.disabled = true;
 
       const formData = new FormData(form);
@@ -163,10 +163,32 @@ document.addEventListener('DOMContentLoaded', () => {
             successDiv.style.opacity = '0';
             successDiv.style.transition = 'opacity 0.5s ease';
             
-            successDiv.innerHTML = `
-              <h3 style="color: var(--color-dark); margin-bottom: 16px; font-size: 20px;">✓ Request received successfully</h3>
-              <p style="color: var(--color-grey-dark); line-height: 1.6; font-size: 16px;">Thank you! Our export team will send the details to your email within 12 hours.</p>
-            `;
+            if (formName === 'catalog') {
+              successDiv.innerHTML = `
+                <h3 style="color: var(--color-dark); margin-bottom: 16px; font-size: 20px;">✓ Catalog Request Received Successfully</h3>
+                <p style="color: var(--color-grey-dark); line-height: 1.6; font-size: 16px;">Your catalog is opening and downloading automatically.</p>
+              `;
+              
+              // After 1 second, trigger PDF actions
+              setTimeout(() => {
+                const pdfUrl = 'assets/divya-stones-catalog.pdf';
+                // Open in new tab
+                window.open(pdfUrl, '_blank');
+                // Trigger download
+                const downloadLink = document.createElement('a');
+                downloadLink.href = pdfUrl;
+                downloadLink.download = 'divya-stones-catalog.pdf';
+                document.body.appendChild(downloadLink);
+                downloadLink.click();
+                document.body.removeChild(downloadLink);
+              }, 1000);
+              
+            } else {
+              successDiv.innerHTML = `
+                <h3 style="color: var(--color-dark); margin-bottom: 16px; font-size: 20px;">✓ Request received successfully</h3>
+                <p style="color: var(--color-grey-dark); line-height: 1.6; font-size: 16px;">Thank you! Our export team will send the details to your email within 12 hours.</p>
+              `;
+            }
             
             form.parentNode.insertBefore(successDiv, form.nextSibling);
             
