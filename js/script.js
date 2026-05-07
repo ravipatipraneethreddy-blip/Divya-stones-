@@ -112,33 +112,69 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ======================================================================
-  // Form Submission (Netlify Forms AJAX)
+  // Form Submission (AJAX - Works with Netlify & Formspree)
   // ======================================================================
-  document.querySelectorAll('form[data-netlify="true"]').forEach(form => {
+  document.querySelectorAll('form').forEach(form => {
+    // Target forms that have data-netlify="true" or a valid action endpoint
+    if (!form.hasAttribute('data-netlify') && !form.getAttribute('action')) return;
+    
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
 
       const btn = form.querySelector('button[type="submit"]');
+      if (btn.disabled) return; // Prevent duplicate submissions
+      
       const originalText = btn.textContent;
-      btn.textContent = 'Sending...';
+      btn.textContent = 'Sending Inquiry...';
       btn.disabled = true;
 
       const formData = new FormData(form);
-      formData.append('form-name', form.getAttribute('name'));
+      if (form.hasAttribute('name')) {
+        formData.append('form-name', form.getAttribute('name'));
+      }
+
+      const actionUrl = form.getAttribute('action') || '/';
 
       try {
-        const resp = await fetch('/', {
+        const resp = await fetch(actionUrl, {
           method: 'POST',
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body: new URLSearchParams(formData).toString()
+          headers: { 'Accept': 'application/json' },
+          body: formData
         });
 
         if (resp.ok) {
-          form.style.display = 'none';
-          const successEl = form.nextElementSibling;
-          if (successEl && successEl.classList.contains('form-success')) {
-            successEl.classList.add('show');
-          }
+          // Clear form fields automatically
+          form.reset();
+          
+          // Smooth fade out
+          form.style.transition = 'opacity 0.3s ease';
+          form.style.opacity = '0';
+          
+          setTimeout(() => {
+            form.style.display = 'none';
+            
+            // Create and show clean success message
+            const successDiv = document.createElement('div');
+            successDiv.style.backgroundColor = 'var(--color-light)';
+            successDiv.style.borderLeft = '4px solid #28a745';
+            successDiv.style.padding = '32px';
+            successDiv.style.borderRadius = '4px';
+            successDiv.style.opacity = '0';
+            successDiv.style.transition = 'opacity 0.5s ease';
+            
+            successDiv.innerHTML = `
+              <h3 style="color: var(--color-dark); margin-bottom: 16px; font-size: 20px;">✓ Message sent successfully</h3>
+              <p style="color: var(--color-grey-dark); line-height: 1.6; font-size: 16px;">Thank you for your inquiry. Our export team will contact you within 12 hours.</p>
+            `;
+            
+            form.parentNode.insertBefore(successDiv, form.nextSibling);
+            
+            // Fade in the success message
+            setTimeout(() => {
+              successDiv.style.opacity = '1';
+            }, 50);
+          }, 300);
+          
         } else {
           alert('Something went wrong. Please try again or contact us via WhatsApp.');
           btn.textContent = originalText;
