@@ -166,18 +166,19 @@ document.addEventListener('DOMContentLoaded', () => {
             if (formName === 'catalog') {
               successDiv.innerHTML = `
                 <h3 style="color: var(--color-dark); margin-bottom: 16px; font-size: 20px;">✓ Catalog Request Received Successfully</h3>
-                <p style="color: var(--color-grey-dark); line-height: 1.6; font-size: 16px;">Your catalog is opening and downloading automatically.</p>
+                <p style="color: var(--color-grey-dark); line-height: 1.6; font-size: 16px;">Your premium export catalog is opening automatically.</p>
               `;
               
-              // After 1 second, trigger PDF actions
+              // After 1 second, trigger Catalog actions
               setTimeout(() => {
-                const pdfUrl = 'assets/divya-stones-catalog.pdf';
-                // Open in new tab
-                window.open(pdfUrl, '_blank');
-                // Trigger download
+                const catalogUrl = 'digital-catalog.html';
+                // Open in new tab with print trigger
+                window.open(catalogUrl + '?print=true', '_blank');
+                
+                // Trigger download of the HTML file
                 const downloadLink = document.createElement('a');
-                downloadLink.href = pdfUrl;
-                downloadLink.download = 'divya-stones-catalog.pdf';
+                downloadLink.href = catalogUrl;
+                downloadLink.download = 'Divya-Stones-Export-Catalog.html';
                 document.body.appendChild(downloadLink);
                 downloadLink.click();
                 document.body.removeChild(downloadLink);

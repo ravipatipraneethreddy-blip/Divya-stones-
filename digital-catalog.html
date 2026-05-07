@@ -368,5 +368,13 @@
     <p class="text-accent tracking-widest" style="color: var(--c-grey);">DIVYA STONES • FACTORY DIRECT INDIAN EXPORTER</p>
   </section>
 
+  <script>
+    // Automatically trigger the print/Save-as-PDF dialog if requested via URL
+    if (window.location.search.includes('print=true')) {
+      window.addEventListener('load', () => {
+        setTimeout(() => window.print(), 500);
+      });
+    }
+  </script>
 </body>
 </html>
