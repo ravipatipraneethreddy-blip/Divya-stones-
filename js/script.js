@@ -139,7 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
       try {
         const resp = await fetch(actionUrl, {
           method: 'POST',
-          headers: { 'Accept': 'application/x-www-form-urlencoded' },
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
           body: new URLSearchParams(formData).toString()
         });
 
