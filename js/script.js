@@ -173,17 +173,43 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ======================================================================
-  // Gallery Thumbnail Click
+  // Gallery Thumbnail Click & Caption
   // ======================================================================
+  function updateCaption(mainImg, altText) {
+    let caption = mainImg.parentElement.querySelector('.main-img-caption');
+    if (!caption) {
+      caption = document.createElement('p');
+      caption.className = 'main-img-caption';
+      caption.style.textAlign = 'center';
+      caption.style.marginTop = '12px';
+      caption.style.fontWeight = '600';
+      caption.style.color = 'var(--color-dark)';
+      caption.style.textTransform = 'capitalize';
+      caption.style.fontSize = '16px';
+      mainImg.parentElement.insertBefore(caption, mainImg.nextSibling);
+    }
+    // Clean up the text a bit for display
+    caption.textContent = altText.replace('—', '-');
+  }
+
   document.querySelectorAll('.gallery-thumb').forEach(thumb => {
     thumb.addEventListener('click', () => {
       const mainImg = thumb.closest('.container')?.querySelector('.product-main-img');
       if (mainImg) {
         mainImg.src = thumb.src;
         mainImg.alt = thumb.alt;
+        updateCaption(mainImg, thumb.alt);
       }
       thumb.parentElement.querySelectorAll('.gallery-thumb').forEach(t => t.classList.remove('active'));
       thumb.classList.add('active');
     });
+  });
+
+  // Initialize captions on page load for the default active thumbnails
+  document.querySelectorAll('.gallery-thumb.active').forEach(thumb => {
+    const mainImg = thumb.closest('.container')?.querySelector('.product-main-img');
+    if (mainImg) {
+      updateCaption(mainImg, thumb.alt);
+    }
   });
 });
