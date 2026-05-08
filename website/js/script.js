@@ -136,7 +136,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // IMPORTANT: Replace the string below with your Web3Forms access key
       // Get it free at https://web3forms.com/ (linked to sales@divyastones.in)
       // ====================================================================
-      const WEB3FORMS_ACCESS_KEY = "YOUR_WEB3FORMS_ACCESS_KEY_HERE";
+      const WEB3FORMS_ACCESS_KEY = "862b060f-4348-42d8-a1f7-8f373e258b90";
       
       formData.append('access_key', WEB3FORMS_ACCESS_KEY);
       if (formName) {
