@@ -130,17 +130,30 @@ document.addEventListener('DOMContentLoaded', () => {
       btn.disabled = true;
 
       const formData = new FormData(form);
+      
+      // ====================================================================
+      // WEB3FORMS INTEGRATION FOR CLOUDFLARE PAGES
+      // IMPORTANT: Replace the string below with your Web3Forms access key
+      // Get it free at https://web3forms.com/ (linked to sales@divyastones.in)
+      // ====================================================================
+      const WEB3FORMS_ACCESS_KEY = "YOUR_WEB3FORMS_ACCESS_KEY_HERE";
+      
+      formData.append('access_key', WEB3FORMS_ACCESS_KEY);
       if (formName) {
-        formData.append('form-name', formName);
+        formData.append('subject', `New Inquiry from Divya Stones (${formName})`);
       }
 
-      const actionUrl = form.getAttribute('action') || '/';
+      // Force action URL to Web3Forms API since Netlify handling is disabled
+      const actionUrl = 'https://api.web3forms.com/submit';
 
       try {
         const resp = await fetch(actionUrl, {
           method: 'POST',
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body: new URLSearchParams(formData).toString()
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify(Object.fromEntries(formData))
         });
 
         if (resp.ok) {
