@@ -1,0 +1,150 @@
+/* ============================================================================
+   DIVYA STONES — 3D MOTION CSS
+   Custom cursor, perspective system, and performance optimizations for the
+   motion engine. Layer on top of existing style.css.
+   ============================================================================ */
+
+/* Perspective container for 3D transforms */
+body {
+  perspective: 1200px;
+}
+
+.product-card,
+.feature-card,
+.testimonial-card,
+.video-placeholder {
+  transform-style: preserve-3d;
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+/* Smooth transitions override for GSAP-controlled elements */
+.product-card {
+  transition: box-shadow 0.4s ease !important;
+}
+
+/* ============================================================================
+   Custom Cursor Glow
+   ============================================================================ */
+.motion-cursor {
+  position: fixed;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid var(--color-accent, #d4c5b9);
+  pointer-events: none;
+  z-index: 99999;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s ease, height 0.3s ease, background 0.3s ease, border-color 0.3s ease, opacity 0.3s ease;
+  mix-blend-mode: difference;
+  opacity: 0.8;
+}
+
+.motion-cursor-active {
+  width: 56px;
+  height: 56px;
+  background: rgba(212, 197, 185, 0.12);
+  border-color: rgba(212, 197, 185, 0.6);
+  opacity: 1;
+}
+
+/* Hide cursor on touch devices */
+@media (pointer: coarse) {
+  .motion-cursor {
+    display: none !important;
+  }
+}
+
+/* ============================================================================
+   Section Transitions — Alternating Depth
+   ============================================================================ */
+.section {
+  position: relative;
+  overflow: hidden;
+}
+
+.section::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, var(--color-accent, #d4c5b9), transparent);
+  opacity: 0.3;
+}
+
+.section-dark::before {
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+}
+
+/* ============================================================================
+   Hero 3D Depth
+   ============================================================================ */
+.hero {
+  transform-style: preserve-3d;
+  overflow: hidden;
+}
+
+.hero-content {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.hero h1 {
+  transform-style: preserve-3d;
+}
+
+/* ============================================================================
+   Word Reveal Animation Overrides
+   ============================================================================ */
+.motion-word {
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: bottom;
+}
+
+.motion-word > span {
+  display: inline-block;
+  transform-style: preserve-3d;
+}
+
+/* ============================================================================
+   Gallery Thumbnails — Enhanced 3D
+   ============================================================================ */
+.gallery-thumb {
+  transform-style: preserve-3d;
+  will-change: transform, opacity;
+}
+
+/* ============================================================================
+   Performance Optimizations
+   ============================================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .motion-cursor { display: none !important; }
+}
+
+/* Smooth scroll for the entire page */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
