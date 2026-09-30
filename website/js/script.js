@@ -13,17 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ======================================================================
-  // Mobile Menu Toggle
-  // ======================================================================
-  const mobileBtn = document.querySelector('.mobile-menu-btn');
-  const navLinks = document.querySelector('.nav-links');
-
-  if (mobileBtn) {
-    mobileBtn.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
-    });
-  }
-
+  // Mobile navigation is handled by premium.js.
   // ======================================================================
   // Active Navigation Highlight
   // ======================================================================
