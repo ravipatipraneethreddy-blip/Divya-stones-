@@ -24,9 +24,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/motion.css">
-
-  <!-- Structured Data -->
+<!-- Structured Data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -80,9 +78,16 @@
     <div class="container nav-container">
       <a href="index.html" class="logo">Divya Stones</a>
       <button class="mobile-menu-btn">☰</button>
-      <nav class="nav-links">
+            <nav class="nav-links">
         <a href="index.html">Home</a>
-        <a href="products.html">Products</a>
+        <div class="nav-dropdown">
+          <a href="products.html" class="nav-dropdown-toggle">Products</a>
+          <div class="nav-dropdown-menu">
+            <a href="granite.html">Granite Collection</a>
+            <a href="slate.html">Slate Collection</a>
+            <a href="limestone.html">Limestone Collection</a>
+          </div>
+        </div>
         <a href="applications.html">Applications</a>
         <a href="about.html">About Us</a>
         <a href="catalog.html">Catalog</a>
@@ -134,8 +139,45 @@
     </div>
   </section>
 
+  <!-- Product Collections Overview -->
+  <section class="section" style="padding-bottom: 20px;">
+    <div class="container">
+      <div class="category-header text-center fade-in" style="justify-content: center; margin-bottom: 40px;">
+        <div style="max-width: 750px; margin: 0 auto;">
+          <span style="font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--color-accent); display: block; margin-bottom: 8px;">ARCHITECTURAL NATURAL STONE CATALOG</span>
+          <h2 style="font-size: 38px; margin-bottom: 16px;">Explore Our Stone Collections</h2>
+          <p style="color: var(--color-grey-dark); font-size: 16px;">
+            Direct from our Bethamcherla manufacturing facility — high-volume container supply for global developers, architects, and stone distributors.
+          </p>
+        </div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 32px; margin-bottom: 60px;">
+        <!-- Granite Showcase Card -->
+        <div class="feature-card slide-up" style="border-top: 4px solid var(--color-dark); padding: 40px; background: linear-gradient(180deg, #ffffff 0%, #fbfbfb 100%);">
+          <span style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: var(--color-accent); display: block; margin-bottom: 8px;">13 VARIETIES • 5 PALETTES</span>
+          <h3 style="font-size: 24px; margin-bottom: 12px; text-transform: uppercase;">Granite Collection</h3>
+          <p style="color: var(--color-grey-dark); font-size: 14px; margin-bottom: 24px; line-height: 1.6;">
+            Dense, crystalline Indian granites in White & Light, Cream, Grey, Black, and Green for luxury facades, worktops, and commercial spaces.
+          </p>
+          <a href="granite.html" class="btn btn-primary" style="font-size: 13px; padding: 12px 20px; width: 100%; text-align: center;">View Granite Collection →</a>
+        </div>
+
+        <!-- Slate Showcase Card -->
+        <div class="feature-card slide-up" style="border-top: 4px solid var(--color-accent); padding: 40px; background: linear-gradient(180deg, #ffffff 0%, #fbfbfb 100%);">
+          <span style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: var(--color-accent); display: block; margin-bottom: 8px;">18 VARIETIES • RAW TEXTURE</span>
+          <h3 style="font-size: 24px; margin-bottom: 12px; text-transform: uppercase;">Slate Collection</h3>
+          <p style="color: var(--color-grey-dark); font-size: 14px; margin-bottom: 24px; line-height: 1.6;">
+            Natural split cleft slatestones and micaceous quartzites in Deep Black, Silver Grey, Autumn, Green, and Multicolor patinas.
+          </p>
+          <a href="slate.html" class="btn btn-primary" style="font-size: 13px; padding: 12px 20px; width: 100%; text-align: center;">View Slate Collection →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Product Categories -->
-  <section class="section">
+  <section class="section section-grey" style="padding-top: 60px;">
     <div class="container">
       <h2 class="text-center mb-4 fade-in" style="font-size: 36px;">Our Signature Limestones</h2>
       <p class="text-center mb-4 fade-in" style="color: var(--color-grey-dark); max-width: 700px; margin: 0 auto 48px;">
@@ -144,7 +186,7 @@
 
       <div class="products-grid">
         <a href="product-kadapa-black.html" class="product-card slide-up stagger-1">
-          <img src="assets/images/kadapa-black.jpg" alt="Kadapa Black Limestone" class="product-img" loading="lazy">
+          <img src="assets/images/limestone/kadapa-black/kadapa-black.jpg" alt="Kadapa Black Limestone" class="product-img" loading="lazy">
           <div class="product-info">
             <h3>Kadapa Black</h3>
             <p>Deep, consistent black tones perfect for modern architecture.</p>
@@ -152,7 +194,7 @@
           </div>
         </a>
         <a href="product-tandur-yellow.html" class="product-card slide-up stagger-2">
-          <img src="assets/images/tandur-yellow.jpg" alt="Tandur Yellow Limestone" class="product-img" loading="lazy">
+          <img src="assets/images/limestone/tandur-yellow/tandur-yellow.jpg" alt="Tandur Yellow Limestone" class="product-img" loading="lazy">
           <div class="product-info">
             <h3>Tandur Yellow</h3>
             <p>Warm, earthy hues providing a classic, inviting appearance.</p>
@@ -160,7 +202,7 @@
           </div>
         </a>
         <a href="product-kurnool-grey.html" class="product-card slide-up stagger-3">
-          <img src="assets/images/kurnool-grey.jpg" alt="Kurnool Grey Limestone" class="product-img" loading="lazy">
+          <img src="assets/images/limestone/kurnool-grey/kurnool-grey.jpg" alt="Kurnool Grey Limestone" class="product-img" loading="lazy">
           <div class="product-info">
             <h3>Kurnool Grey</h3>
             <p>Subtle, sophisticated grey ideal for contemporary spaces.</p>
@@ -168,7 +210,7 @@
           </div>
         </a>
         <a href="product-tandur-blue.html" class="product-card slide-up stagger-4">
-          <img src="assets/images/tandur-blue.jpg" alt="Tandur Blue Limestone" class="product-img" loading="lazy">
+          <img src="assets/images/limestone/tandur-blue/tandur-blue.jpg" alt="Tandur Blue Limestone" class="product-img" loading="lazy">
           <div class="product-info">
             <h3>Tandur Blue</h3>
             <p>Unique bluish-grey tones offering a premium finish.</p>
@@ -302,13 +344,14 @@
           <p style="max-width: 300px;">Direct from factory in India with consistent color sorting for premium bulk supply.</p>
           <p style="max-width: 300px; font-weight: 600; color: var(--color-accent); margin-top: 16px;">Bulk Orders Only (Container Supply)</p>
         </div>
-        <div>
-          <h4>Quick Links</h4>
+                <div>
+          <h4>Collections & Links</h4>
           <ul style="padding: 0;">
-            <li><a href="products.html">Our Products</a></li>
+            <li><a href="granite.html">Granite Collection</a></li>
+            <li><a href="slate.html">Slate Collection</a></li>
+            <li><a href="limestone.html">Limestone Collection</a></li>
             <li><a href="applications.html">Applications</a></li>
             <li><a href="about.html">About Us</a></li>
-            <li><a href="blog.html">Resources</a></li>
             <li><a href="catalog.html">Download Catalog</a></li>
           </ul>
         </div>
@@ -337,13 +380,5 @@
 
   <!-- Core Scripts -->
   <script src="js/script.js"></script>
-
-  <!-- 3D Motion Libraries (CDN) -->
-  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-
-  <!-- 3D Motion Engine -->
-  <script src="js/motion.js"></script>
 </body>
 </html>

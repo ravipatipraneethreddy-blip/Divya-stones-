@@ -18,7 +18,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/motion.css">
 </head>
 <body>
 
@@ -26,9 +25,16 @@
     <div class="container nav-container">
       <a href="index.html" class="logo">Divya Stones</a>
       <button class="mobile-menu-btn">☰</button>
-      <nav class="nav-links">
+            <nav class="nav-links">
         <a href="index.html">Home</a>
-        <a href="products.html">Products</a>
+        <div class="nav-dropdown">
+          <a href="products.html" class="nav-dropdown-toggle">Products</a>
+          <div class="nav-dropdown-menu">
+            <a href="granite.html">Granite Collection</a>
+            <a href="slate.html">Slate Collection</a>
+            <a href="limestone.html">Limestone Collection</a>
+          </div>
+        </div>
         <a href="applications.html">Applications</a>
         <a href="about.html">About Us</a>
         <a href="catalog.html">Catalog</a>
@@ -110,12 +116,49 @@
                 <div class="form-group">
                   <label for="product">Product Interest</label>
                   <select id="product" name="product" class="form-control">
-                    <option value="">Select a product</option>
-                    <option value="Kadapa Black">Kadapa Black</option>
-                    <option value="Tandur Yellow">Tandur Yellow</option>
-                    <option value="Kurnool Grey">Kurnool Grey</option>
-                    <option value="Tandur Blue">Tandur Blue</option>
-                    <option value="Multiple Products">Multiple Products</option>
+                    <option value="">Select a product of interest</option>
+                    <optgroup label="Granite Collection (13 Varieties)">
+                      <option value="Chida White Granite">Chida White Granite</option>
+                      <option value="Colonial White Granite">Colonial White Granite</option>
+                      <option value="Imperial White Granite">Imperial White Granite</option>
+                      <option value="Moon White Granite">Moon White Granite</option>
+                      <option value="River White Granite">River White Granite</option>
+                      <option value="Viscon White Granite">Viscon White Granite</option>
+                      <option value="Astoria Granite">Astoria Granite</option>
+                      <option value="Ivory White Granite">Ivory White Granite</option>
+                      <option value="Sadaralli Grey Granite">Sadaralli Grey Granite</option>
+                      <option value="Titanium Black Granite">Titanium Black Granite</option>
+                      <option value="Flash Blue Granite">Flash Blue Granite</option>
+                      <option value="Surf Green Granite">Surf Green Granite</option>
+                      <option value="Sea Green Granite">Sea Green Granite</option>
+                    </optgroup>
+                    <optgroup label="Slate Collection (18 Varieties)">
+                      <option value="Black Slatestone">Black Slatestone</option>
+                      <option value="M. Black Slatestone">M. Black Slatestone</option>
+                      <option value="Rustic Black Slatestone">Rustic Black Slatestone</option>
+                      <option value="Silver Grey Matrix Slate">Silver Grey Matrix Slate</option>
+                      <option value="Silver Grey Quartzite">Silver Grey Quartzite</option>
+                      <option value="Multi Grey / South Multi Slatestone">Multi Grey / South Multi Slatestone</option>
+                      <option value="Silver Leaf Slate">Silver Leaf Slate</option>
+                      <option value="Indian Autumn Slatestone">Indian Autumn Slatestone</option>
+                      <option value="Autumn Rustic Slatestone">Autumn Rustic Slatestone</option>
+                      <option value="SP Autumn Slatestone">SP Autumn Slatestone</option>
+                      <option value="Zeera Green Slate">Zeera Green Slate</option>
+                      <option value="N. Green Slatestone">N. Green Slatestone</option>
+                      <option value="M. Green Slatestone">M. Green Slatestone</option>
+                      <option value="Rustic Green Slatestone">Rustic Green Slatestone</option>
+                      <option value="Multi Pink Slatestone">Multi Pink Slatestone</option>
+                      <option value="Pure Pink Slatestone">Pure Pink Slatestone</option>
+                      <option value="Vijay Gold Slatestone">Vijay Gold Slatestone</option>
+                      <option value="Chocolate Slatestone">Chocolate Slatestone</option>
+                    </optgroup>
+                    <optgroup label="Limestone Collection">
+                      <option value="Kadapa Black Limestone">Kadapa Black Limestone</option>
+                      <option value="Tandur Yellow Limestone">Tandur Yellow Limestone</option>
+                      <option value="Kurnool Grey Limestone">Kurnool Grey Limestone</option>
+                      <option value="Tandur Blue Limestone">Tandur Blue Limestone</option>
+                    </optgroup>
+                    <option value="Multiple Products / Mixed Container">Multiple Products / Mixed Container</option>
                   </select>
                 </div>
               </div>
@@ -164,10 +207,12 @@
           <p style="max-width: 300px;">Direct from factory in India with consistent color sorting for premium bulk supply.</p>
           <p style="max-width: 300px; font-weight: 600; color: var(--color-accent); margin-top: 16px;">Bulk Orders Only (Container Supply)</p>
         </div>
-        <div>
-          <h4>Quick Links</h4>
+                <div>
+          <h4>Collections & Links</h4>
           <ul style="padding: 0;">
-            <li><a href="products.html">Our Products</a></li>
+            <li><a href="granite.html">Granite Collection</a></li>
+            <li><a href="slate.html">Slate Collection</a></li>
+            <li><a href="limestone.html">Limestone Collection</a></li>
             <li><a href="applications.html">Applications</a></li>
             <li><a href="about.html">About Us</a></li>
             <li><a href="catalog.html">Download Catalog</a></li>
@@ -192,9 +237,5 @@
 
   <button class="back-to-top" aria-label="Back to top">↑</button>
   <script src="js/script.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-  <script src="js/motion.js"></script>
 </body>
 </html>

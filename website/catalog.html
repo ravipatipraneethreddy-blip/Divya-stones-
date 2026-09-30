@@ -18,7 +18,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/motion.css">
 </head>
 <body style="background-color: var(--color-grey); min-height: 100vh; display: flex; flex-direction: column;">
 
@@ -26,9 +25,16 @@
     <div class="container nav-container">
       <a href="index.html" class="logo">Divya Stones</a>
       <button class="mobile-menu-btn">☰</button>
-      <nav class="nav-links">
+            <nav class="nav-links">
         <a href="index.html">Home</a>
-        <a href="products.html">Products</a>
+        <div class="nav-dropdown">
+          <a href="products.html" class="nav-dropdown-toggle">Products</a>
+          <div class="nav-dropdown-menu">
+            <a href="granite.html">Granite Collection</a>
+            <a href="slate.html">Slate Collection</a>
+            <a href="limestone.html">Limestone Collection</a>
+          </div>
+        </div>
         <a href="applications.html">Applications</a>
         <a href="about.html">About Us</a>
         <a href="catalog.html">Catalog</a>
@@ -126,9 +132,5 @@
   </a>
 
   <script src="js/script.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-  <script src="js/motion.js"></script>
 </body>
 </html>

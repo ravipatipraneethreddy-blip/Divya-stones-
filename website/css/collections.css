@@ -1,0 +1,1210 @@
+/* ==========================================================================
+   DIVYA STONES — LUXURY PRODUCT COLLECTION STYLES
+   High-end Architectural Stone Catalog System
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Root Variables & Typography Refinements
+   -------------------------------------------------------------------------- */
+:root {
+  --color-stone-dark: #121212;
+  --color-stone-muted: #1e1e1e;
+  --color-stone-cream: #fbf9f6;
+  --color-stone-sand: #e6ded5;
+  --color-stone-accent: #c4a480;
+  --color-stone-border: rgba(0, 0, 0, 0.08);
+  --color-stone-border-dark: rgba(255, 255, 255, 0.12);
+  --shadow-subtle: 0 4px 20px rgba(0, 0, 0, 0.04);
+  --shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.08);
+  --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.06);
+  --radius-sm: 4px;
+  --radius-md: 8px;
+}
+
+/* --------------------------------------------------------------------------
+   2. Collection Hero Section
+   -------------------------------------------------------------------------- */
+.collection-hero {
+  position: relative;
+  min-height: 520px;
+  display: flex;
+  align-items: center;
+  background-color: var(--color-stone-dark);
+  color: var(--color-light);
+  padding: 160px 0 90px;
+  overflow: hidden;
+  border-bottom: 1px solid var(--color-stone-border-dark);
+}
+
+.collection-hero-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.35;
+  filter: grayscale(20%) contrast(110%);
+  transform: scale(1.02);
+  transition: transform 10s ease;
+}
+
+.collection-hero:hover .collection-hero-bg {
+  transform: scale(1.06);
+}
+
+.collection-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 30% 40%, rgba(18, 18, 18, 0.4) 0%, rgba(18, 18, 18, 0.92) 80%);
+}
+
+.collection-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 860px;
+}
+
+.collection-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--color-stone-accent);
+  font-weight: 600;
+  margin-bottom: 20px;
+  padding: 6px 14px;
+  background: rgba(196, 164, 128, 0.1);
+  border: 1px solid rgba(196, 164, 128, 0.25);
+  border-radius: 50px;
+  backdrop-filter: blur(8px);
+}
+
+.collection-hero h1 {
+  font-size: clamp(38px, 5.5vw, 64px);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  margin-bottom: 24px;
+  text-transform: uppercase;
+}
+
+.collection-hero p.lead {
+  font-size: clamp(17px, 2vw, 20px);
+  line-height: 1.65;
+  color: #d1d5db;
+  max-width: 680px;
+  margin-bottom: 36px;
+  font-weight: 300;
+}
+
+.collection-meta-bar {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  flex-wrap: wrap;
+  padding-top: 24px;
+  border-top: 1px solid var(--color-stone-border-dark);
+}
+
+.meta-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.meta-item .meta-val {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--color-light);
+  line-height: 1.2;
+}
+
+.meta-item .meta-lbl {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #9ca3af;
+  margin-top: 4px;
+}
+
+/* --------------------------------------------------------------------------
+   3. Quick Category Navigation Bar (Sticky Filter Strip)
+   -------------------------------------------------------------------------- */
+.category-nav-strip {
+  background: var(--color-light);
+  border-bottom: 1px solid var(--color-stone-border);
+  position: sticky;
+  top: 80px;
+  z-index: 90;
+  backdrop-filter: blur(12px);
+  background-color: rgba(253, 253, 253, 0.95);
+  transition: all 0.3s ease;
+}
+
+.category-nav-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  overflow-x: auto;
+  padding: 16px 0;
+  scrollbar-width: none;
+}
+
+.category-nav-container::-webkit-scrollbar {
+  display: none;
+}
+
+.category-pill {
+  white-space: nowrap;
+  padding: 8px 18px;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--color-grey-dark);
+  border-radius: 50px;
+  background: var(--color-grey);
+  border: 1px solid transparent;
+  transition: all 0.25s ease;
+}
+
+.category-pill:hover,
+.category-pill.active {
+  background: var(--color-stone-dark);
+  color: var(--color-light);
+  transform: translateY(-1px);
+}
+
+/* --------------------------------------------------------------------------
+   4. Category Section Header
+   -------------------------------------------------------------------------- */
+.collection-category-block {
+  padding: 80px 0 40px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.collection-category-block:last-of-type {
+  border-bottom: none;
+}
+
+.category-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 40px;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.category-header-info {
+  max-width: 680px;
+}
+
+.category-badge {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 700;
+  color: var(--color-accent);
+  margin-bottom: 8px;
+  display: inline-block;
+}
+
+.category-title {
+  font-size: clamp(28px, 3.5vw, 40px);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--color-dark);
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+.category-desc {
+  font-size: 16px;
+  color: var(--color-grey-dark);
+  line-height: 1.6;
+}
+
+.category-count {
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #6b7280;
+  padding: 6px 14px;
+  background: var(--color-grey);
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+/* --------------------------------------------------------------------------
+   5. Luxury Product Grid & Architectural Stone Cards
+   -------------------------------------------------------------------------- */
+.stone-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.stone-card {
+  background: var(--color-light);
+  border: 1px solid #eaeaea;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: var(--shadow-subtle);
+  position: relative;
+}
+
+.stone-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-hover);
+  border-color: #d1d5db;
+}
+
+.stone-card-media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background-color: #e5e7eb;
+}
+
+.stone-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  display: block;
+}
+
+.stone-card:hover .stone-card-img {
+  transform: scale(1.08);
+}
+
+/* Elegant Stone Texture Placeholder Fallback */
+.stone-placeholder-pattern {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #f5f5f4 0%, #e7e5e4 50%, #d6d3d1 100%);
+  color: #44403c;
+  padding: 24px;
+  text-align: center;
+}
+
+.stone-placeholder-pattern::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(0, 0, 0, 0.08) 1px, transparent 0);
+  background-size: 12px 12px;
+  opacity: 0.6;
+}
+
+.stone-placeholder-label {
+  position: relative;
+  z-index: 1;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #57534e;
+  background: rgba(255, 255, 255, 0.85);
+  padding: 8px 16px;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.stone-card-category-pill {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 2;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  background: rgba(18, 18, 18, 0.82);
+  color: var(--color-light);
+  padding: 4px 10px;
+  border-radius: 3px;
+  backdrop-filter: blur(4px);
+}
+
+.stone-card-body {
+  padding: 26px 24px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.stone-card-name {
+  font-size: 21px;
+  font-weight: 700;
+  color: var(--color-dark);
+  margin-bottom: 8px;
+  line-height: 1.25;
+  transition: color 0.2s ease;
+}
+
+.stone-card:hover .stone-card-name {
+  color: #000;
+}
+
+.stone-card-desc {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--color-grey-dark);
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+.stone-card-specs-brief {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 22px;
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.stone-spec-tag {
+  background: var(--color-grey);
+  padding: 3px 8px;
+  border-radius: 3px;
+  font-weight: 500;
+}
+
+.stone-card-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: auto;
+}
+
+.btn-card-view {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background: transparent;
+  border: 1px solid var(--color-dark);
+  color: var(--color-dark);
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.btn-card-view:hover {
+  background: var(--color-dark);
+  color: var(--color-light);
+}
+
+.btn-card-quote {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background: var(--color-dark);
+  border: 1px solid var(--color-dark);
+  color: var(--color-light);
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.btn-card-quote:hover {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: var(--color-dark);
+}
+
+/* --------------------------------------------------------------------------
+   6. Breadcrumbs
+   -------------------------------------------------------------------------- */
+.stone-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #6b7280;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.stone-breadcrumb a {
+  color: #6b7280;
+  transition: color 0.2s ease;
+}
+
+.stone-breadcrumb a:hover {
+  color: var(--color-dark);
+}
+
+.stone-breadcrumb .sep {
+  color: #9ca3af;
+}
+
+.stone-breadcrumb .current {
+  color: var(--color-dark);
+  font-weight: 600;
+}
+
+/* --------------------------------------------------------------------------
+   7. Product Detail Page Layout
+   -------------------------------------------------------------------------- */
+.product-detail-section {
+  padding: 130px 0 80px;
+  background: var(--color-light);
+}
+
+.product-detail-layout {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 56px;
+  align-items: start;
+}
+
+/* Left Column: Visual Showcase */
+.product-showcase {
+  position: sticky;
+  top: 100px;
+}
+
+.product-main-frame {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background-color: #f3f4f6;
+  border: 1px solid #e5e7eb;
+  box-shadow: var(--shadow-card);
+  position: relative;
+}
+
+.product-main-showcase-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.product-main-frame:hover .product-main-showcase-img {
+  transform: scale(1.03);
+}
+
+.showcase-badge-container {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  right: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  pointer-events: none;
+}
+
+.showcase-origin-badge {
+  background: rgba(18, 18, 18, 0.85);
+  color: var(--color-light);
+  padding: 6px 12px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-radius: 3px;
+  backdrop-filter: blur(6px);
+}
+
+/* Right Column: Information & B2B Inquiry */
+.product-info-panel h1 {
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 800;
+  line-height: 1.15;
+  color: var(--color-dark);
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+}
+
+.product-category-tag {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--color-accent);
+  margin-bottom: 20px;
+}
+
+.product-lead-description {
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--color-grey-dark);
+  margin-bottom: 32px;
+}
+
+.product-b2b-highlight {
+  background: var(--color-grey);
+  border-left: 3px solid var(--color-dark);
+  padding: 20px 24px;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  margin-bottom: 32px;
+}
+
+.product-b2b-highlight h4 {
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 6px;
+  color: var(--color-dark);
+}
+
+.product-b2b-highlight p {
+  font-size: 14px;
+  color: var(--color-grey-dark);
+  line-height: 1.5;
+}
+
+.product-cta-group {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 36px;
+}
+
+.product-cta-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.btn-b2b-primary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px 28px;
+  background-color: var(--color-dark);
+  color: var(--color-light);
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-dark);
+  transition: all 0.25s ease;
+  cursor: pointer;
+  text-align: center;
+}
+
+.btn-b2b-primary:hover {
+  background-color: var(--color-accent);
+  border-color: var(--color-accent);
+  color: var(--color-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.btn-b2b-whatsapp {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px 28px;
+  background-color: #25d366;
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  border-radius: var(--radius-sm);
+  border: 1px solid #25d366;
+  transition: all 0.25s ease;
+  cursor: pointer;
+  text-align: center;
+}
+
+.btn-b2b-whatsapp:hover {
+  background-color: #1eb956;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(37, 211, 102, 0.25);
+}
+
+.btn-b2b-catalog {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 24px;
+  background-color: transparent;
+  color: var(--color-dark);
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: var(--radius-sm);
+  border: 1px solid #d1d5db;
+  transition: all 0.2s ease;
+  text-align: center;
+}
+
+.btn-b2b-catalog:hover {
+  background-color: var(--color-grey);
+  border-color: var(--color-dark);
+}
+
+/* --------------------------------------------------------------------------
+   8. Technical Specifications & Applications Details
+   -------------------------------------------------------------------------- */
+.product-specs-section {
+  padding: 60px 0 80px;
+  background-color: var(--color-grey);
+  border-top: 1px solid #e5e7eb;
+}
+
+.specs-grid-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+}
+
+.spec-card-box {
+  background: var(--color-light);
+  padding: 36px;
+  border-radius: var(--radius-sm);
+  border: 1px solid #eaeaea;
+  box-shadow: var(--shadow-subtle);
+}
+
+.spec-card-box h3 {
+  font-size: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 24px;
+  color: var(--color-dark);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.spec-list-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.spec-list-table tr {
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.spec-list-table tr:last-child {
+  border-bottom: none;
+}
+
+.spec-list-table th {
+  padding: 14px 0;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #6b7280;
+  font-weight: 600;
+  width: 38%;
+  text-align: left;
+}
+
+.spec-list-table td {
+  padding: 14px 0;
+  font-size: 15px;
+  color: var(--color-dark);
+  font-weight: 500;
+}
+
+.application-tags-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.app-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: var(--color-grey);
+  border-radius: 4px;
+  font-size: 14px;
+  color: var(--color-dark);
+  font-weight: 500;
+}
+
+/* --------------------------------------------------------------------------
+   9. Related Stones Grid
+   -------------------------------------------------------------------------- */
+.related-stones-section {
+  padding: 80px 0 100px;
+  background: var(--color-light);
+  border-top: 1px solid #e5e7eb;
+}
+
+.related-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 40px;
+}
+
+.related-header h2 {
+  font-size: 32px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+}
+
+/* --------------------------------------------------------------------------
+   10. Quick Navigation & Dropdown Menus in Header
+   -------------------------------------------------------------------------- */
+.nav-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.nav-dropdown-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.nav-dropdown-toggle::after {
+  content: '▾';
+  font-size: 10px;
+  transition: transform 0.2s ease;
+}
+
+.nav-dropdown:hover .nav-dropdown-toggle::after {
+  transform: rotate(180deg);
+}
+
+.nav-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: -16px;
+  background: rgba(253, 253, 253, 0.98);
+  backdrop-filter: blur(16px);
+  border: 1px solid #eaeaea;
+  border-radius: 6px;
+  padding: 10px 0;
+  min-width: 200px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 1001;
+}
+
+.nav-dropdown:hover .nav-dropdown-menu,
+.nav-dropdown:focus-within .nav-dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.nav-dropdown-menu a {
+  display: block;
+  padding: 10px 20px;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  color: var(--color-dark);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.nav-dropdown-menu a:hover {
+  background-color: var(--color-grey);
+  color: var(--color-accent);
+}
+
+.nav-dropdown-menu a::after {
+  display: none !important;
+}
+
+/* --------------------------------------------------------------------------
+   11. Responsive Breakpoints
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .stone-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .product-detail-layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .product-showcase {
+    position: static;
+  }
+
+  .specs-grid-layout {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  .collection-hero {
+    min-height: 420px;
+    padding: 130px 0 60px;
+  }
+
+  .collection-meta-bar {
+    gap: 20px;
+  }
+
+  .stone-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .category-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .product-cta-row {
+    grid-template-columns: 1fr;
+  }
+
+  .nav-dropdown-menu {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    box-shadow: none;
+    border: none;
+    padding: 4px 0 0 16px;
+    background: transparent;
+  }
+
+  .nav-dropdown-menu a {
+    padding: 8px 0;
+    color: var(--color-grey-dark);
+  }
+}
+
+/* ==========================================================================
+   12. Three-Collection Triptych (products.html)
+   ========================================================================== */
+
+.collections-triptych-section {
+  background: #0e0e0e;
+  padding: 0;
+}
+
+.collections-triptych {
+  display: grid;
+  grid-template-columns: 1fr 1.12fr 1fr;
+  min-height: 820px;
+}
+
+/* Individual Panel */
+.collection-panel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-right: 1px solid rgba(255, 255, 255, 0.06);
+  transition: flex 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.collection-panel:last-child {
+  border-right: none;
+}
+
+/* Panel background colours */
+.collection-panel--limestone {
+  background: linear-gradient(160deg, #1a150f 0%, #120e08 60%, #0e0b06 100%);
+}
+
+.collection-panel--granite {
+  background: linear-gradient(160deg, #111111 0%, #0a0a0a 60%, #050505 100%);
+}
+
+.collection-panel--slate {
+  background: linear-gradient(160deg, #0f100d 0%, #0b0c09 60%, #070806 100%);
+}
+
+/* Featured (Granite) gets a subtle top highlight */
+.collection-panel--featured {
+  border-top: 2px solid var(--color-stone-accent);
+}
+
+.panel-inner {
+  padding: 52px 40px 48px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+/* Panel Header */
+.panel-header {
+  margin-bottom: 20px;
+}
+
+.panel-eyebrow {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  color: var(--color-stone-accent);
+  margin-bottom: 12px;
+  opacity: 0.85;
+}
+
+.panel-title {
+  font-size: clamp(32px, 3.5vw, 44px);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  color: #f5f5f5;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.panel-subtitle {
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #6b7280;
+}
+
+/* Panel Description */
+.panel-desc {
+  font-size: 14px;
+  line-height: 1.7;
+  color: #9ca3af;
+  margin-bottom: 24px;
+  font-weight: 300;
+}
+
+/* Thumbnail Grid */
+.panel-thumbs {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.panel-thumbs--featured {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.panel-thumb {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  border-radius: 4px;
+  overflow: hidden;
+  background: #1e1e1e;
+  display: block;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.panel-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  display: block;
+}
+
+.panel-thumb:hover img {
+  transform: scale(1.1);
+}
+
+/* Thumb overlay name label */
+.panel-thumb-name {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 16px 8px 6px;
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #f5f5f5;
+  background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 100%);
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.panel-thumb:hover .panel-thumb-name {
+  opacity: 1;
+}
+
+/* Fallback when image missing */
+.panel-thumb-fallback {
+  position: absolute;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #1e1a16 0%, #2a241d 100%);
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #78716c;
+  text-align: center;
+  padding: 8px;
+}
+
+/* "+N More" placeholder tile */
+.panel-thumb--more {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px dashed rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, border-color 0.2s ease;
+  text-decoration: none;
+}
+
+.panel-thumb--more:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--color-stone-accent);
+}
+
+.panel-thumb-more-label {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-stone-accent);
+  text-align: center;
+  line-height: 1.3;
+}
+
+.panel-thumb-more-label small {
+  display: block;
+  font-size: 10px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.7;
+}
+
+/* Highlight bullets */
+.panel-highlights {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 28px;
+  margin-top: auto;
+}
+
+.panel-highlights li {
+  font-size: 12px;
+  color: #6b7280;
+  padding: 5px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  letter-spacing: 0.3px;
+}
+
+.panel-highlights li:first-child {
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* CTA Button */
+.panel-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 24px;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: var(--color-stone-accent);
+  border: 1px solid rgba(196, 164, 128, 0.35);
+  border-radius: 4px;
+  background: rgba(196, 164, 128, 0.05);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+  margin-top: 4px;
+}
+
+.panel-cta:hover {
+  background: var(--color-stone-accent);
+  border-color: var(--color-stone-accent);
+  color: #0e0e0e;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(196, 164, 128, 0.25);
+}
+
+.collection-panel--featured .panel-cta {
+  background: rgba(196, 164, 128, 0.1);
+  border-color: rgba(196, 164, 128, 0.5);
+}
+
+/* ==========================================================================
+   13. Triptych Responsive
+   ========================================================================== */
+@media (max-width: 1100px) {
+  .panel-thumbs--featured {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .collections-triptych {
+    grid-template-columns: 1fr;
+  }
+
+  .collection-panel {
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .collection-panel:last-child {
+    border-bottom: none;
+  }
+
+  .panel-thumbs--featured {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .panel-inner {
+    padding: 40px 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .panel-thumbs,
+  .panel-thumbs--featured {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

@@ -285,4 +285,35 @@ document.addEventListener('DOMContentLoaded', () => {
       updateCaption(mainImg, thumb.alt);
     }
   });
+
+  // ======================================================================
+  // Auto-fill Product in Contact Form from Query Param (?stone=...)
+  // ======================================================================
+  const urlParams = new URLSearchParams(window.location.search);
+  const requestedStone = urlParams.get('stone');
+  if (requestedStone) {
+    const productSelect = document.getElementById('product');
+    const requirementField = document.getElementById('requirement');
+    if (productSelect) {
+      let optionFound = false;
+      for (let i = 0; i < productSelect.options.length; i++) {
+        if (productSelect.options[i].value.toLowerCase() === requestedStone.toLowerCase() ||
+            productSelect.options[i].text.toLowerCase().includes(requestedStone.toLowerCase())) {
+          productSelect.selectedIndex = i;
+          optionFound = true;
+          break;
+        }
+      }
+      if (!optionFound) {
+        const customOpt = document.createElement('option');
+        customOpt.value = requestedStone;
+        customOpt.text = requestedStone;
+        customOpt.selected = true;
+        productSelect.appendChild(customOpt);
+      }
+    }
+    if (requirementField && !requirementField.value) {
+      requirementField.value = `Inquiry regarding ${requestedStone} container pricing, finishes, and dimensions: `;
+    }
+  }
 });

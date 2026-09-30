@@ -9,7 +9,7 @@
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <meta property="og:title" content="About Us | Divya Stones">
   <meta property="og:description" content="Established in 2002, Divya Stones is a direct manufacturer and bulk exporter of premium Indian limestone.">
-  <meta property="og:image" content="assets/images/stone_slabs.png">
+  <meta property="og:image" content="assets/images/homepage_bg.jpg">
   <meta property="og:url" content="https://www.divyastones.in/about.html">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
@@ -18,7 +18,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/motion.css">
 </head>
 <body>
 
@@ -26,9 +25,16 @@
     <div class="container nav-container">
       <a href="index.html" class="logo">Divya Stones</a>
       <button class="mobile-menu-btn">☰</button>
-      <nav class="nav-links">
+            <nav class="nav-links">
         <a href="index.html">Home</a>
-        <a href="products.html">Products</a>
+        <div class="nav-dropdown">
+          <a href="products.html" class="nav-dropdown-toggle">Products</a>
+          <div class="nav-dropdown-menu">
+            <a href="granite.html">Granite Collection</a>
+            <a href="slate.html">Slate Collection</a>
+            <a href="limestone.html">Limestone Collection</a>
+          </div>
+        </div>
         <a href="applications.html">Applications</a>
         <a href="about.html">About Us</a>
         <a href="catalog.html">Catalog</a>
@@ -68,7 +74,7 @@
           </ul>
         </div>
         <div style="flex: 1; min-width: 300px;" class="fade-in">
-          <img src="assets/images/stone_slabs.png" alt="Divya Stones factory showing stacked limestone slabs ready for export" loading="lazy" style="width: 100%; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+          <img src="assets/images/homepage_bg.jpg" alt="Divya Stones factory showing natural stone slabs ready for export" loading="lazy" style="width: 100%; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
         </div>
       </div>
     </div>
@@ -122,10 +128,12 @@
           <p style="max-width: 300px;">Direct from factory in India with consistent color sorting for premium bulk supply.</p>
           <p style="max-width: 300px; font-weight: 600; color: var(--color-accent); margin-top: 16px;">Bulk Orders Only (Container Supply)</p>
         </div>
-        <div>
-          <h4>Quick Links</h4>
+                <div>
+          <h4>Collections & Links</h4>
           <ul style="padding: 0;">
-            <li><a href="products.html">Our Products</a></li>
+            <li><a href="granite.html">Granite Collection</a></li>
+            <li><a href="slate.html">Slate Collection</a></li>
+            <li><a href="limestone.html">Limestone Collection</a></li>
             <li><a href="applications.html">Applications</a></li>
             <li><a href="about.html">About Us</a></li>
             <li><a href="catalog.html">Download Catalog</a></li>
@@ -147,9 +155,5 @@
   </a>
   <button class="back-to-top" aria-label="Back to top">↑</button>
   <script src="js/script.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-  <script src="js/motion.js"></script>
 </body>
 </html>
