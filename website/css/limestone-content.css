@@ -1,0 +1,28 @@
+/* Product guidance and navigation by limestone colour. */
+.ds-material-notes h2, .ds-colour-related h2 { font-size: clamp(32px, 3.5vw, 46px); margin-bottom: 32px; }
+.ds-material-note-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 48px; }
+.ds-material-note-grid h3 { font-size: 28px; line-height: 1.2; margin-bottom: 16px; }
+.ds-material-note-grid p { font-size: 14px; line-height: 1.9; max-width: 530px; }
+.ds-material-notes > .ds-text-link { margin-top: 30px; }
+.ds-colour-related { border-top: 1px solid var(--line); }
+.ds-colour-links { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; }
+.ds-colour-links a { display: block; padding: 24px 0; border-top: 1px solid var(--line); }
+.ds-colour-links span { display: block; font-family: var(--serif); font-size: 28px; line-height: 1.2; }
+.ds-colour-links small { display: block; font-size: 11px; color: var(--muted); margin-top: 12px; }
+.ds-colour-links a:hover span { text-decoration: underline; text-underline-offset: 5px; }
+.ds-faq-section h2 { overflow-wrap: break-word; }
+@media (max-width: 850px) {
+  .product-detail-hero > .container > div { flex-direction: column; }
+  .product-detail-hero > .container > div > .fade-in { flex: 0 0 auto !important; width: 100%; min-width: 0 !important; }
+  .ds-colour-links { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ds-material-note-grid { gap: 28px; }
+}
+@media (max-width: 600px) {
+  .ds-material-note-grid { grid-template-columns: 1fr; gap: 32px; }
+  .ds-material-note-grid h3 { font-size: 26px; }
+  .ds-material-notes h2, .ds-colour-related h2 { margin-bottom: 26px; }
+  .ds-colour-links { grid-template-columns: 1fr; gap: 0; }
+  .ds-colour-links a { padding: 20px 0; }
+  .ds-colour-links span { font-size: 27px; }
+  .ds-colour-links small { margin-top: 8px; }
+}
