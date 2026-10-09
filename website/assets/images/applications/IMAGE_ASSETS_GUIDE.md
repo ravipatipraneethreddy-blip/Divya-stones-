@@ -26,20 +26,20 @@ When you drop an image with the matching filename, it will immediately reflect o
 **Recommended Resolution**: `1600 x 1000 px` (Heroes: `1920 x 1080 px`, JPG/WebP optimized for web)
 
 ### 01. Outdoor Paving & Landscaping
-- `outdoor-patios-pathways.jpg` — *Luxury Patios & Garden Pathways (Kadapa Black Crazy Paving)* [Hero]
-- `outdoor-courtyards-terraces.jpg` — *Courtyards & Terraces (Kadapa Black Tumbled Paving)*
-- `outdoor-stepping-stones.jpg` — *Stepping Stones & Borders (Tandur Blue Circular Steppers)*
+- `outdoor-patios-pathways.jpg` — *Luxury Patios & Garden Pathways (Charcoal Black Crazy Paving)* [Hero]
+- `outdoor-courtyards-terraces.jpg` — *Courtyards & Terraces (Charcoal Black Tumbled Paving)*
+- `outdoor-stepping-stones.jpg` — *Stepping Stones & Borders (Worn Grey Circular Steppers)*
 
 ### 02. Pools & Pool Surrounds
-- `pools-resort-swimming-pool.jpg` — *Resort-Style Swimming Pools & Decks (Tandur Yellow Calibrated Deck)* [Cinema Hero]
-- `pools-bullnose-coping.jpg` — *Bullnose Edge Coping (Tandur Blue Tactile Non-Slip)*
-- `pools-radial-corners.jpg` — *Radial Pool Corners (Tandur Blue CNC Finished)*
+- `pools-resort-swimming-pool.jpg` — *Resort-Style Swimming Pools & Decks (Umbrian Limestone Calibrated Deck)* [Cinema Hero]
+- `pools-bullnose-coping.jpg` — *Bullnose Edge Coping (Worn Grey Tactile Non-Slip)*
+- `pools-radial-corners.jpg` — *Radial Pool Corners (Worn Grey CNC Finished)*
 - `pools-poolside-terrace.jpg` — *Poolside Terraces & Surrounds (Kurnool Grey Honed & Tumbled)*
 
 ### 03. Indoor Flooring
 - `indoor-living-rooms.jpg` — *Luxury Living Rooms & Salons (Kurnool Grey Honed & Brushed)*
-- `indoor-open-plan.jpg` — *Open-Plan Residences (Tandur Yellow Calibrated Warmth)*
-- `indoor-entrance-halls.jpg` — *Entrance Halls & Galleries (Kadapa Black Top Honed Finish)*
+- `indoor-open-plan.jpg` — *Open-Plan Residences (Umbrian Limestone Calibrated Warmth)*
+- `indoor-entrance-halls.jpg` — *Entrance Halls & Galleries (Charcoal Black Top Honed Finish)*
 
 ### 04. Kitchens & Countertops
 - `kitchens-waterfall-islands.jpg` — *Waterfall Kitchen Islands (Viscon White Marble-Veined Granite)*
@@ -47,26 +47,26 @@ When you drop an image with the matching filename, it will immediately reflect o
 
 ### 05. Wall Cladding
 - `wall-cladding-feature-walls.jpg` — *Exterior & Interior Feature Walls (Kurnool Grey 3D Ledgestone)* [Hero]
-- `wall-cladding-fireplace-accents.jpg` — *Fireplace & Accent Walls (Tandur Blue Split-Face Veneer)*
-- `wall-cladding-hotel-feature-walls.jpg` — *Garden & Hotel Feature Walls (Kadapa Black Tumbled Mosaic)*
+- `wall-cladding-fireplace-accents.jpg` — *Fireplace & Accent Walls (Worn Grey Split-Face Veneer)*
+- `wall-cladding-hotel-feature-walls.jpg` — *Garden & Hotel Feature Walls (Charcoal Black Tumbled Mosaic)*
 
 ### 06. Stairs & Steps
-- `stairs-monumental-block-steps.jpg` — *Monumental Solid Block Steps (Kadapa Black 150mm Solid Sawn Risers)*
-- `stairs-bullnosed-treads.jpg` — *Bullnosed Step Treads & Risers (Kadapa Black Full Bullnose Profile)*
-- `stairs-terrace-garden-steps.jpg` — *Terrace & Garden Steps (Tandur Yellow Tumbled Bullnose)*
+- `stairs-monumental-block-steps.jpg` — *Monumental Solid Block Steps (Charcoal Black 150mm Solid Sawn Risers)*
+- `stairs-bullnosed-treads.jpg` — *Bullnosed Step Treads & Risers (Charcoal Black Full Bullnose Profile)*
+- `stairs-terrace-garden-steps.jpg` — *Terrace & Garden Steps (Umbrian Limestone Tumbled Bullnose)*
 
 ### 07. Driveways & Entrances
-- `driveways-residential-driveways.jpg` — *Luxury Residential Driveways (Kadapa Black 100x100mm Tumbled Cobbles)*
+- `driveways-residential-driveways.jpg` — *Luxury Residential Driveways (Charcoal Black 100x100mm Tumbled Cobbles)*
 - `driveways-hotel-entrance-courtyards.jpg` — *Hotel & Villa Entrance Courtyards (Kurnool Grey Heavy Duty Setts)*
 
 ### 08. Commercial & Hospitality
-- `commercial-hotel-resort-plazas.jpg` — *Luxury Hotels & Resort Plazas (Tandur Blue Honed & Brushed)* [Cinema Hero]
-- `commercial-corporate-headquarters.jpg` — *Corporate Headquarters (Kadapa Black Calibrated Large Format)*
-- `commercial-public-spaces-retail.jpg` — *Public Spaces & Retail (Kadapa Black Sandblasted Anti-Slip)*
+- `commercial-hotel-resort-plazas.jpg` — *Luxury Hotels & Resort Plazas (Worn Grey Honed & Brushed)* [Cinema Hero]
+- `commercial-corporate-headquarters.jpg` — *Corporate Headquarters (Charcoal Black Calibrated Large Format)*
+- `commercial-public-spaces-retail.jpg` — *Public Spaces & Retail (Charcoal Black Sandblasted Anti-Slip)*
 - `commercial-atriums-concourse.jpg` — *Atriums & Concourse Slabs (Colonial White High-Traffic Granite)*
 
 ### 09. Facade & Architectural Cladding
-- `facades-contemporary-villas.jpg` — *Contemporary Villa Facades (Tandur Blue Elevation Panels)*
+- `facades-contemporary-villas.jpg` — *Contemporary Villa Facades (Worn Grey Elevation Panels)*
 - `facades-commercial-elevations.jpg` — *Commercial Elevations & Detailing (Kurnool Grey 3D Facade Modules)*
 
 ---

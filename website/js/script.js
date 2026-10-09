@@ -280,7 +280,17 @@ document.addEventListener('DOMContentLoaded', () => {
   // Auto-fill Product in Contact Form from Query Param (?stone=...)
   // ======================================================================
   const urlParams = new URLSearchParams(window.location.search);
-  const requestedStone = urlParams.get('stone');
+  const stoneFromLink = urlParams.get('stone');
+  // Keep saved enquiry links working after the product renames.
+  const legacyStoneNames = {
+    'tandur yellow': 'Umbrian Limestone',
+    'tandur yellow limestone': 'Umbrian Limestone',
+    'tandur blue': 'Worn Grey Limestone',
+    'tandur blue limestone': 'Worn Grey Limestone',
+    'kadapa black': 'Charcoal Black Limestone',
+    'kadapa black limestone': 'Charcoal Black Limestone'
+  };
+  const requestedStone = legacyStoneNames[stoneFromLink?.trim().toLowerCase()] || stoneFromLink;
   if (requestedStone) {
     const productSelect = document.getElementById('product');
     const requirementField = document.getElementById('requirement');
