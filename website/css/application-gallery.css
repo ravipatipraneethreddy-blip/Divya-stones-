@@ -10,7 +10,7 @@
   box-shadow: none;
   backdrop-filter: none;
 }
-.app-nav-grid { grid-template-columns: repeat(9, minmax(0, 1fr)); overflow: visible; padding: 0; }
+.app-nav-grid { grid-template-columns: repeat(8, minmax(0, 1fr)); overflow: visible; padding: 0; }
 .app-nav-card { min-width: 0; padding: 10px 8px 12px; }
 .app-nav-card:hover { transform: none; box-shadow: none; }
 .app-nav-thumb { height: auto; aspect-ratio: 3 / 2; margin-bottom: 12px; }
@@ -36,6 +36,7 @@
   background: transparent;
   overflow: visible;
 }
+@media (min-width: 601px) { #commercial .layout-cinema-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 .app-frame > img { height: auto; aspect-ratio: 3 / 2; object-fit: cover; }
 .layout-asymmetric-hero > img { aspect-ratio: 1 / 1; }
 .layout-cinema-hero > img { aspect-ratio: 2 / 1; }
@@ -60,7 +61,7 @@
 .suitable-stones-left { gap: 12px 20px; }
 .suitable-pills { gap: 8px; }
 @media (max-width: 1100px) {
-  .app-nav-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; }
+  .app-nav-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
   .app-nav-thumb { aspect-ratio: 2 / 1; }
   .app-nav-card span { font-size: 10px; }
 }
