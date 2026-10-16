@@ -284,6 +284,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // Keep saved enquiry links working after the product renames.
   const legacyStoneNames = {
     'tandur yellow': 'Umbrian Limestone',
+    'yellow limestone': 'Umbrian Limestone',
+    'umbarian limestone': 'Umbrian Limestone',
     'tandur yellow limestone': 'Umbrian Limestone',
     'tandur blue': 'Worn Grey Limestone',
     'tandur blue limestone': 'Worn Grey Limestone',
