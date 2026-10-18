@@ -59,7 +59,7 @@
     video.hidden = false; video.poster = card.querySelector('img').src;
     video.onloadeddata = () => { if (ticket === version) status.textContent = ''; };
     video.onerror = () => { if (ticket === version) status.textContent = 'The video could not load. Please try again.'; };
-    if (video.canPlayType('application/vnd.apple.mpegurl')) {
+    if (link.pathname.endsWith('.mp4') || video.canPlayType('application/vnd.apple.mpegurl')) {
       video.src = link.href; video.load(); video.play().catch(() => {});
       return;
     }
