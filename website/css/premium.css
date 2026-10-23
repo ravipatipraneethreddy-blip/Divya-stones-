@@ -29,3 +29,31 @@ html{scroll-behavior:smooth;scroll-padding-top:124px}body{background:var(--paper
 
 @media(max-width:600px){.btn-app-quote{max-width:100%;white-space:normal;text-align:center;padding-left:20px;padding-right:20px}}
 @media(max-width:600px){.suitable-actions{display:flex;flex-direction:column;align-items:stretch;width:100%;gap:12px}.suitable-actions .btn-app-quote,.suitable-actions .btn-app-cta{width:100%;text-align:center;justify-content:center;white-space:normal;padding:14px 18px}}
+
+
+/* Direct enquiries, with a labelled touch target above the iPhone home indicator. */
+.ds-button.ds-whatsapp-cta, .ds-whatsapp {
+  background:#176344; color:#fff; border:1px solid #176344;
+  min-height:52px; font-size:13px; font-weight:600; line-height:1.4;
+  justify-content:center; text-align:center; touch-action:manipulation;
+}
+.ds-button.ds-whatsapp-cta:hover, .ds-whatsapp:hover { background:#104d34; color:#fff; }
+.ds-whatsapp { gap:10px; border-radius:4px; box-shadow:0 4px 18px #173e2929; }
+.ds-whatsapp svg { flex-shrink:0; width:24px; height:24px; }
+.ds-whatsapp>span { display:inline; }
+.ds-whatsapp:focus-visible, .ds-whatsapp-cta:focus-visible { outline:3px solid #b5bd91; outline-offset:4px; }
+.ds-hero .ds-actions { flex-wrap:wrap; }
+@media(max-width:850px) {
+  body { padding-bottom:calc(88px + env(safe-area-inset-bottom, 0px)); }
+  .ds-whatsapp {
+    left:max(16px, env(safe-area-inset-left, 0px)); right:max(16px, env(safe-area-inset-right, 0px));
+    bottom:calc(12px + env(safe-area-inset-bottom, 0px)); min-height:56px;
+    padding:14px 18px; border-radius:6px; font-size:15px;
+  }
+}
+@media(max-width:600px) {
+  .ds-hero .ds-actions { flex-direction:column; align-items:stretch; gap:12px; }
+  .ds-hero .ds-whatsapp-cta { font-size:14px; min-height:54px; padding:15px 18px; }
+  .ds-hero .is-outline { min-height:44px; font-size:12px; justify-content:center; }
+  .product-detail-hero .ds-whatsapp-cta { width:100%; }
+}

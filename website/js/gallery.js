@@ -9,20 +9,28 @@
   const original = dialog.querySelector('#gallery-original');
   const more = document.querySelector('#gallery-more');
   const count = document.querySelector('#gallery-visible-count');
-  let selected = cards, limit = 12, current = 0, hls = null, version = 0, library;
+  const pageSize = 24;
+  let selected = cards, limit = pageSize, current = 0, hls = null, version = 0, library;
+  let opener = null, touchStart = null;
   const render = () => {
     cards.forEach(card => { card.hidden = !selected.includes(card) || selected.indexOf(card) >= limit; });
     more.hidden = limit >= selected.length;
+    more.textContent = `Show ${Math.min(pageSize, Math.max(0, selected.length - limit))} more`;
     count.textContent = `${Math.min(limit, selected.length)} of ${selected.length}`;
   };
   document.querySelectorAll('[data-gallery-filter]').forEach(button => button.addEventListener('click', () => {
     document.querySelectorAll('[data-gallery-filter]').forEach(b => b.setAttribute('aria-pressed', String(b === button)));
     const filter = button.dataset.galleryFilter;
     selected = cards.filter(card => filter === 'all' || card.dataset.mediaKind === filter);
-    limit = 12;
+    limit = pageSize;
     render();
   }));
-  more.addEventListener('click', () => { limit += 12; render(); });
+  more.addEventListener('click', () => {
+    const firstNewCard = selected[limit];
+    limit += pageSize;
+    render();
+    firstNewCard?.querySelector('[data-gallery-open]').focus();
+  });
   render();
   const cleanup = () => {
     version++;
@@ -52,7 +60,10 @@
       image.hidden = false; image.alt = link.getAttribute('aria-label').replace('Open ', '');
       image.onload = () => { if (ticket === version) status.textContent = ''; };
       image.onerror = () => { if (ticket === version) status.textContent = 'The photo could not load. Please try again.'; };
-      image.src = link.href;
+      // Use the existing lightweight preview on mobile; the original remains one tap away.
+      const preview = card.querySelector('img');
+      const mobilePreview = preview.srcset.split(',').pop().trim().split(/\s+/)[0];
+      image.src = window.matchMedia('(max-width:850px)').matches && mobilePreview ? mobilePreview : link.href;
       original.href = link.dataset.original; original.hidden = false;
       return;
     }
@@ -75,13 +86,31 @@
   };
   cards.forEach(card => card.querySelector('[data-gallery-open]').addEventListener('click', event => {
     event.preventDefault();
+    opener = event.currentTarget;
     dialog.showModal();
+    document.documentElement.classList.add('ds-gallery-is-open');
     show(selected.indexOf(card));
   }));
   dialog.querySelector('.ds-gallery-close').addEventListener('click', () => dialog.close());
-  dialog.addEventListener('close', cleanup);
+  dialog.addEventListener('close', () => {
+    cleanup();
+    touchStart = null;
+    document.documentElement.classList.remove('ds-gallery-is-open');
+    opener?.focus({ preventScroll: true });
+  });
   dialog.querySelector('.ds-gallery-prev').addEventListener('click', () => show(current - 1));
   dialog.querySelector('.ds-gallery-next').addEventListener('click', () => show(current + 1));
+  image.addEventListener('touchstart', event => {
+    touchStart = event.touches.length === 1 ? { x: event.touches[0].clientX, y: event.touches[0].clientY } : null;
+  }, { passive: true });
+  image.addEventListener('touchend', event => {
+    if (!touchStart || event.touches.length || event.changedTouches.length !== 1) { touchStart = null; return; }
+    const dx = event.changedTouches[0].clientX - touchStart.x;
+    const dy = event.changedTouches[0].clientY - touchStart.y;
+    touchStart = null;
+    if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.5 && (window.visualViewport?.scale || 1) <= 1) show(current + (dx < 0 ? 1 : -1));
+  }, { passive: true });
+  image.addEventListener('touchcancel', () => { touchStart = null; }, { passive: true });
   dialog.addEventListener('keydown', event => {
     if (event.target === video) return;
     if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') { event.preventDefault(); show(current + (event.key === 'ArrowRight' ? 1 : -1)); }

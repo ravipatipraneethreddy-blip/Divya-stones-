@@ -28,3 +28,31 @@
 #gallery-photo-title { position:absolute; width:1px; height:1px; padding:0; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; }
 @media(max-width:850px) { .ds-gallery-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
 @media(max-width:600px) { .ds-gallery-grid { gap:10px; } .ds-gallery-dialog { padding:44px 10px 16px; } .ds-gallery-stage { grid-template-columns:30px minmax(0,1fr) 30px; gap:3px; } .ds-gallery-stage>button { width:30px; height:38px; } .ds-gallery-media img,.ds-gallery-media video { height:60vh; } .ds-gallery-enlarge { width:26px;height:26px;font-size:18px;right:6px;bottom:6px; } }
+
+
+/* Comfortable gallery controls on touch screens; retain each original photograph. */
+.ds-gallery-filters button { min-height:48px; font-size:13px; }
+#gallery-more { min-height:52px; font-size:13px; }
+.ds-gallery-close { width:48px; height:48px; display:grid; place-items:center; padding:0; }
+.ds-gallery-open:focus-visible, .ds-gallery-stage>button:focus-visible,
+.ds-gallery-close:focus-visible, .ds-gallery-filters button:focus-visible {
+  outline:3px solid #718260; outline-offset:3px;
+}
+.ds-gallery-media img { touch-action:pan-y pinch-zoom; }
+html.ds-gallery-is-open { overflow:hidden; }
+.ds-gallery-dialog { max-height:94dvh; overscroll-behavior:contain; }
+@media(max-width:600px) {
+  .ds-gallery-filters { gap:8px; }
+  .ds-gallery-filters button { flex:1; padding:12px 8px; }
+  .ds-gallery-dialog {
+    width:100%; max-width:100%; height:100%; height:100dvh; max-height:100dvh; margin:0;
+    padding:calc(56px + env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px)) calc(20px + env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px));
+  }
+  .ds-gallery-close { top:calc(4px + env(safe-area-inset-top, 0px)); right:max(12px, env(safe-area-inset-right, 0px)); }
+  .ds-gallery-stage { grid-template-columns:1fr 1fr; gap:12px; }
+  .ds-gallery-media { grid-column:1 / -1; grid-row:1; }
+  .ds-gallery-media img, .ds-gallery-media video { height:calc(100vh - 230px); height:calc(100dvh - 230px - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px)); min-height:100px; }
+  .ds-gallery-stage>button { width:100%; height:48px; font-size:25px; }
+  .ds-gallery-caption { padding-top:4px; }
+  #gallery-original { display:inline-flex; align-items:center; min-height:44px; }
+}
